@@ -1,0 +1,1738 @@
+-- cockroaches fatty hub
+
+local player = game.Players.LocalPlayer
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+OrionLib:MakeNotification({
+	Name = "Cokroache's Fatty Hub!",
+	Content = "For the big fatties aroung the globe",
+	Image = "rbxassetid://107642772703957",
+	Time = 5
+})
+
+
+local Window = OrionLib:MakeWindow({Name = "Cokroache's Fatty Hub V1.41", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://128146070832284",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Character"
+})
+
+Tab:AddButton({
+	Name = "Fly",
+	Callback = function()
+loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Noclip",
+	Callback = function()
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local StarterGui = game:GetService("StarterGui")
+local player = Players.LocalPlayer
+local noclip = false
+local connection
+ 
+local function notify(message)
+    StarterGui:SetCore("SendNotification", {
+        Title = "Notification";
+        Text = message;
+        Duration = 3;
+    })
+end
+ 
+local function toggleNoclip()
+    noclip = not noclip
+    if noclip then
+        connection = RunService.Stepped:Connect(function()
+            for _, part in pairs(player.Character:GetDescendants()) do
+                if part:IsA("BasePart") then
+                    part.CanCollide = false
+                end
+            end
+        end)
+        notify("noclip on, by thebestpersol. Enjoy!")
+    else
+        if connection then
+            connection:Disconnect()
+        end
+        for _, part in pairs(player.Character:GetDescendants()) do
+            if part:IsA("BasePart") then
+                part.CanCollide = true
+            end
+        end
+        notify("noclip off, by thebestpersol. Enjoy!")
+    end
+end
+ 
+local function createTool()
+    local tool = Instance.new("Tool")
+    tool.Name = "Noclip Tool"
+    tool.RequiresHandle = false
+    tool.CanBeDropped = false
+    tool.Parent = player:WaitForChild("Backpack")
+ 
+    tool.Activated:Connect(function()
+        toggleNoclip()
+    end)
+end
+ 
+local function onCharacterAdded()
+    wait(0.1)
+    createTool()
+end
+ 
+if player.Character then
+    onCharacterAdded()
+end
+ 
+player.CharacterAdded:Connect(onCharacterAdded)  	end    
+})
+
+local spinpower = nil
+
+Tab:AddButton({
+	Name = "Spin",
+	Callback = function()
+      		power = spinpower -- change this to make it more or less powerful
+ 
+game:GetService('RunService').Stepped:connect(function()
+game.Players.LocalPlayer.Character.Head.CanCollide = false
+game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+end)
+wait(.1)
+local bambam = Instance.new("BodyThrust")
+bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+bambam.Force = Vector3.new(power,0,power)
+bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+  	end    
+})
+
+
+
+Tab:AddTextbox({
+	Name = "Spin Power",
+	Default = "500",
+	TextDisappear = true,
+	Callback = function(Peepee)
+		spinpower = Peepee
+	end	  
+})
+
+
+
+
+
+
+
+
+
+
+Tab:AddButton({
+	Name = "Ding Dong >:3",
+	Callback = function()
+--snakedrake
+
+-- settings
+local SNAKE_LENGTH = 10
+local SNAKE_SIZE = 1
+local SNAKE_WOBBLINESS = 50
+local SNAKE_COLOR = Color3.fromRGB(220, 220, 220)
+local SNAKE_WETNESS = 5
+local SNAKE_MATERIAL = "Glass"
+
+
+
+
+
+
+
+
+-- secript
+local Character = game:GetService("Players").LocalPlayer.Character
+local Root: BasePart = Character:WaitForChild("HumanoidRootPart")
+
+local PpAttachment = Instance.new("Attachment")
+PpAttachment.Name = "PpAttachment"
+PpAttachment.Position = Vector3.new(0, -1, -0.5)
+PpAttachment.Orientation = Vector3.new(0, 90, 0)
+PpAttachment.Parent = Root
+
+local PpHolder = Instance.new("Folder")
+PpHolder.Name = "PpHolder"
+PpHolder.Parent = workspace
+
+local function MakeSnake(Length: number, Size: number, Wobbliness: number)
+	PpHolder:ClearAllChildren()
+
+	local LastSection
+	local Sections = {}
+
+	local PpRoot = Instance.new("Part")
+	PpRoot.Transparency = 1
+	PpRoot.CanCollide = false
+	PpRoot.CanQuery = false
+	PpRoot.CanTouch = false
+	PpRoot.Massless = true
+	PpRoot.Name = "NewPPRoot"
+	PpRoot.Parent = PpHolder
+
+	local NewPpAttachment = Instance.new("Attachment")
+	NewPpAttachment.Parent = PpRoot
+
+	local AlignPp = Instance.new("AlignPosition")
+	AlignPp.RigidityEnabled = true
+	AlignPp.Attachment0 = NewPpAttachment
+	AlignPp.Attachment1 = PpAttachment
+	AlignPp.Parent = PpRoot
+
+	local AlignPpRotation = Instance.new("AlignOrientation")
+	AlignPpRotation.RigidityEnabled = true
+	AlignPpRotation.Attachment0 = NewPpAttachment
+	AlignPpRotation.Attachment1 = PpAttachment
+	AlignPpRotation.Parent = PpRoot
+
+	local MinimumIndex = math.ceil(1 / Size) * 1
+
+	for i = 1, math.ceil(Length) do
+		local IsLastSection = i == Length
+		
+		local PpSection = Instance.new("Part")
+		PpSection.Shape = IsLastSection and Enum.PartType.Ball or Enum.PartType.Cylinder
+		PpSection.CanCollide = i > MinimumIndex
+		PpSection.Massless = true
+		PpSection.Material = Enum.Material.SmoothPlastic
+		PpSection.CustomPhysicalProperties = PhysicalProperties.new(0.0001, 0.0001, 0.0001)
+		PpSection.Position = Root.Position
+		PpSection.Color = SNAKE_COLOR
+		PpSection.Reflectance = SNAKE_WETNESS / 100
+		PpSection.Material = SNAKE_MATERIAL
+		PpSection.Size = Vector3.one * Size
+
+		local BackAttachment = Instance.new("Attachment")
+		BackAttachment.Position = Vector3.new(IsLastSection and -0.25 or (-Size / 2), 0, 0)
+		BackAttachment.Parent = PpSection
+
+		local FrontAttachment = Instance.new("Attachment")
+		FrontAttachment.Position = Vector3.new(Size / 2, 0, 0)
+		FrontAttachment.Name = "Important"
+		FrontAttachment.Parent = PpSection
+
+		local BallsConstraint = Instance.new("BallSocketConstraint")
+		BallsConstraint.Attachment0 = LastSection and LastSection:FindFirstChild("Important") or NewPpAttachment
+		BallsConstraint.Attachment1 = BackAttachment
+		BallsConstraint.Parent = PpSection
+
+		local AlignOrientation = Instance.new("AlignOrientation")
+		AlignOrientation.Responsiveness = Wobbliness or 10
+		AlignOrientation.Attachment0 = BackAttachment
+		AlignOrientation.Attachment1 = LastSection and LastSection:FindFirstChild("Important") or NewPpAttachment
+		AlignOrientation.Parent = PpSection
+
+		local AlignPosition = Instance.new("AlignPosition")
+		AlignPosition.Responsiveness = 10
+		AlignPosition.Attachment0 = BackAttachment
+		AlignPosition.Attachment1 = LastSection and LastSection:FindFirstChild("Important") or PpAttachment
+		AlignPosition.Parent = PpSection
+
+		PpSection.Parent = PpHolder
+		LastSection = PpSection
+
+		table.insert(Sections, PpSection)
+	end
+
+	for _, Section in pairs(Sections) do
+		for _, OtherSection in pairs(Sections) do
+			if Section == OtherSection then continue end
+
+			local Constraint = Instance.new("NoCollisionConstraint")
+			Constraint.Part0 = Section
+			Constraint.Part1 = OtherSection
+			Constraint.Parent = Section
+		end
+	end
+end
+
+MakeSnake(SNAKE_LENGTH, SNAKE_SIZE, SNAKE_WOBBLINESS)
+	end	  
+})
+
+
+
+
+
+
+
+
+local Section = Tab:AddSection({
+	Name = "Visuals"
+})
+
+Tab:AddButton({
+	Name = "FOV",
+	Callback = function()
+-- Instances:
+ 
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local title = Instance.new("TextLabel")
+local emotes = Instance.new("TextButton")
+local vynixu = Instance.new("TextButton")
+local ludicity = Instance.new("TextButton")
+local eclipse = Instance.new("TextButton")
+local god = Instance.new("TextButton")
+local troll = Instance.new("TextButton")
+ 
+--Properties:
+ 
+ScreenGui.Parent = game.CoreGui
+ 
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+main.BackgroundTransparency = 0.300
+main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+main.Position = UDim2.new(0.0163098853, 0, 0.319767386, 0)
+main.Size = UDim2.new(0, 212, 0, 251)
+main.Active = true
+main.Draggable = true
+ 
+title.Name = "title"
+title.Parent = main
+title.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+title.BorderSizePixel = 0
+title.Position = UDim2.new(-1.1920929e-07, 0, 0, 0)
+title.Size = UDim2.new(0, 212, 0, 22)
+title.Font = Enum.Font.Cartoon
+title.Text = "Made.by.Kaido#0257"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextSize = 14.000
+ 
+emotes.Name = "emotes"
+emotes.Parent = main
+emotes.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+emotes.BackgroundTransparency = 0.300
+emotes.BorderColor3 = Color3.fromRGB(255, 255, 255)
+emotes.Position = UDim2.new(0.0566037744, 0, 0.843250215, 0)
+emotes.Size = UDim2.new(0, 187, 0, 22)
+emotes.Font = Enum.Font.Cartoon
+emotes.Text = "Fov.20"
+emotes.TextColor3 = Color3.fromRGB(255, 255, 255)
+emotes.TextSize = 14.000
+emotes.TextWrapped = true
+emotes.MouseButton1Down:connect(function()
+  workspace.CurrentCamera.FieldOfView = 20 
+end)
+ 
+vynixu.Name = "vynixu"
+vynixu.Parent = main
+vynixu.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+vynixu.BackgroundTransparency = 0.300
+vynixu.BorderColor3 = Color3.fromRGB(255, 255, 255)
+vynixu.Position = UDim2.new(0.0566037744, 0, 0.13348788, 0)
+vynixu.Size = UDim2.new(0, 187, 0, 22)
+vynixu.Font = Enum.Font.Cartoon
+vynixu.Text = "Fov.120"
+vynixu.TextColor3 = Color3.fromRGB(255, 255, 255)
+vynixu.TextSize = 14.000
+vynixu.TextWrapped = true
+vynixu.MouseButton1Down:connect(function()
+    workspace.CurrentCamera.FieldOfView = 120
+end)
+ 
+ludicity.Name = "ludicity"
+ludicity.Parent = main
+ludicity.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ludicity.BackgroundTransparency = 0.300
+ludicity.BorderColor3 = Color3.fromRGB(255, 255, 255)
+ludicity.Position = UDim2.new(0.0566037744, 0, 0.280969203, 0)
+ludicity.Size = UDim2.new(0, 187, 0, 22)
+ludicity.Font = Enum.Font.Cartoon
+ludicity.Text = "Fov.100"
+ludicity.TextColor3 = Color3.fromRGB(255, 255, 255)
+ludicity.TextSize = 14.000
+ludicity.TextWrapped = true
+ludicity.MouseButton1Down:connect(function()
+   workspace.CurrentCamera.FieldOfView = 100
+end)
+ 
+eclipse.Name = "eclipse"
+eclipse.Parent = main
+eclipse.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+eclipse.BackgroundTransparency = 0.300
+eclipse.BorderColor3 = Color3.fromRGB(255, 255, 255)
+eclipse.Position = UDim2.new(0.0566037744, 0, 0.428859621, 0)
+eclipse.Size = UDim2.new(0, 187, 0, 22)
+eclipse.Font = Enum.Font.Cartoon
+eclipse.Text = "Fov.80"
+eclipse.TextColor3 = Color3.fromRGB(255, 255, 255)
+eclipse.TextSize = 14.000
+eclipse.TextWrapped = true
+eclipse.MouseButton1Down:connect(function()
+ workspace.CurrentCamera.FieldOfView = 80
+end)
+ 
+god.Name                   = "god"
+god.Parent                 = main
+god.BackgroundColor3       = Color3.fromRGB(0, 0, 0)
+god.BackgroundTransparency = 0.300
+god.BorderColor3           = Color3.fromRGB(255, 255, 255)
+god.Position               = UDim2.new(0.0566037744, 0, 0.566901684, 0)
+god.Size                   = UDim2.new(0, 187, 0, 22)
+god.Font                   = Enum.Font.Cartoon
+god.Text                   = "Fov.60"
+god.TextColor3             = Color3.fromRGB(255, 255, 255)
+god.TextSize               = 14.000
+god.TextWrapped            = true
+god.MouseButton1Down:connect(function()
+   workspace.CurrentCamera.FieldOfView = 60
+end)
+ 
+troll.Name = "troll"
+troll.Parent = main
+troll.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+troll.BackgroundTransparency = 0.300
+troll.BorderColor3 = Color3.fromRGB(255, 255, 255)
+troll.Position = UDim2.new(0.0566037744, 0, 0.708927751, 0)
+troll.Size = UDim2.new(0, 187, 0, 22)
+troll.Font = Enum.Font.Cartoon
+troll.Text = "Fov.40"
+troll.TextColor3 = Color3.fromRGB(255, 255, 255)
+troll.TextSize = 14.000
+troll.TextWrapped = true
+troll.MouseButton1Down:connect(function()
+   workspace.CurrentCamera.FieldOfView = 40
+end)
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Third Person (Garbage)",
+	Callback = function()
+      		print("button ")
+  	end    
+})
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Universal Hubs",
+	Icon = "rbxassetid://107642772703957",
+	PremiumOnly = false
+})
+
+
+local Section = Tab:AddSection({
+	Name = "Infinite Yield"
+})
+
+
+Tab:AddButton({
+	Name = "Inf Yield",
+	Callback = function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+
+  	end    
+})
+
+
+
+local Section = Tab:AddSection({
+	Name = "MSPaint"
+})
+
+
+ local unitpoopa = nil
+ 
+
+
+Tab:AddButton({
+	Name = "Ms Paint",
+	Callback = function()
+
+script_key=unitpoopa;
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/002c19202c9946e6047b0c6e0ad51f84.lua"))()
+  	end    
+})
+
+
+
+
+Tab:AddTextbox({
+	Name = "Enter Key",
+	Default = "key",
+	TextDisappear = true,
+	Callback = function(Value)
+		unitpoop = Value
+	end	  
+})
+
+
+Tab:AddButton({
+	Name = "Get Key (CHECK CONSOLE FOR LINK)",
+	Callback = function()
+print("https://ads.luarmor.net/get_key?for=-rXJfopyAkrky")
+  	end    
+})
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Game Hubs",
+	Icon = "rbxassetid://107642772703957",
+	PremiumOnly = false
+})
+
+
+local Section = Tab:AddSection({
+	Name = "MSPaint SUGGESTED!"
+})
+
+
+
+local Section = Tab:AddSection({
+	Name = "MM2"
+})
+
+
+Tab:AddButton({
+	Name = "MM2 GUI | NEXUS",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Skzuppy/forge-hub/main/loader.lua"))()
+  	end    
+})
+
+
+
+
+
+
+local Section = Tab:AddSection({
+	Name = "Blade Ball"
+})
+
+
+Tab:AddButton({
+	Name = "Bakugan Blade Ball",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SoyAdriYT/Bakugan/refs/heads/main/Bakugan.lua", true))()
+
+  	end    
+})
+
+
+local Section = Tab:AddSection({
+	Name = "Tower of Hell"
+})
+
+
+Tab:AddButton({
+	Name = "TOH Gui",
+	Callback = function()
+--[[ NOT MY SCRIPT IT WAS MADE BY TECH HOG! ]]
+--[[https://www.youtube.com/@TechHog8984 THERE CHANNEL!]]
+ 
+local VLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))()
+ 
+local s = VLib:Window("Tower Of Hell Gui", "By TheMystery_O_O", "TOH")
+ 
+local ss = s:Tab("General")
+ 
+ss:Button("Bypass Anticheat",function()  -- Credits For The Bypass To https://www.youtube.com/watch?v=SlPzMVf-lNQ&t=0s
+    local reg = getreg()
+ 
+    for i, Function in next, reg do
+        if type(Function) == 'function' then
+            local info = getinfo(Function)
+ 
+            if info.name == 'kick' then
+                if (hookfunction(info.func, function(...)end)) then
+                    print'succesfully hooked kick'
+                else
+                    print'failed to hook kick'
+                end
+            end
+        end
+    end
+    local playerscripts = game:GetService'Players'.LocalPlayer.PlayerScripts
+ 
+    local script1 = playerscripts.LocalScript
+    local script2 = playerscripts.LocalScript2
+ 
+    local script1signal = script1.Changed
+    local script2signal = script2.Changed
+ 
+    for i, connection in next, getconnections(script1signal) do
+        connection:Disable()
+    end
+    for i, connection in next, getconnections(script2signal) do
+        connection:Disable()
+    end
+ 
+    script1:Destroy()
+    script2:Destroy()
+end)
+ 
+ss:Button("Go To End",function()
+    local endzone = game.Workspace.tower.sections.finish.FinishGlow.CFrame
+ 
+    local player = game.Players.LocalPlayer.Character
+    player.HumanoidRootPart.CFrame = endzone
+end)
+ 
+ss:Button("Get All Items",function()
+    for _,e in pairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
+        if e:IsA("Tool") then
+        e:Destroy()
+        end
+        end
+        wait() 
+        for _,v in pairs(game.ReplicatedStorage.Gear:GetDescendants()) do
+        if v:IsA("Tool") then
+        local CloneThings = v:Clone()
+        wait()
+        CloneThings.Parent = game.Players.LocalPlayer.Backpack
+ 
+        end
+        end
+end)
+ 
+ss:Button("God Mode (Remove KillParts)",function()
+    for i,v in pairs(game:GetService("Workspace").tower:GetDescendants()) do
+        if v:IsA("BoolValue") and v.Name == "kills" then
+            v.Parent:Destroy()
+        end
+    end
+end)
+ 
+ss:Slider("WalkSpeed",0,500,16,function(t)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = t
+end)
+ 
+ss:Slider("JumpPower",0,500,50,function(t)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = t
+ end)
+ 
+ss:Button("Reset Walk and Jump",function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+end)
+ 
+ss:Button("IY (Infinite Yield)",function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+ 
+ss:Button("Anti Lag",function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/eVHmQQvQ'))()
+end)
+ 
+local sss = s:Tab("Auto Farm")
+ 
+-- Table
+getgenv().Boolean = false
+ 
+sss:Toggle("Auto Farm",function(v)
+    getgenv().Boolean = v
+ 
+    if v then -- if v == true then
+    name()
+    end
+end)
+ 
+-- function
+function name()
+spawn(function()
+while getgenv().Boolean == true do
+local endzone = game.Workspace.tower.sections.finish.FinishGlow.CFrame
+ 
+local player = game.Players.LocalPlayer.Character
+player.HumanoidRootPart.CFrame = endzone
+wait()
+end
+end)
+end
+ 
+sss:Button("Anti Afk",function()
+    local vu = game:GetService("VirtualUser")
+    game:GetService("Players").LocalPlayer.Idled:connect(function()
+       vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+       wait(1)
+       vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+    end)
+end)
+ 
+ 
+local ssss = s:Tab("Credits")
+ 
+ssss:Label("Gui By TheMystery_O_O in robloxscripts")
+ssss:Label("forum.robloxscripts.com/member.php?action=profile&uid=48177")
+ssss:Label("Ui Lib By Vep in robloxscripts")
+ssss:Label("forum.robloxscripts.com/member.php?action=profile&uid=4869")
+ssss:Label("AntiCheat Bypass By TechHog")
+ssss:Label("Video Link: (youtube.com/watch?v=SlPzMVf-lNQ&t=0s)")  
+end    
+})
+
+
+
+
+
+
+
+
+
+local Section = Tab:AddSection({
+	Name = "Fisch"
+})
+
+
+Tab:AddButton({
+	Name = "Fisch Ratio Hub",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Efe0626/RaitoHub/refs/heads/main/Script"))()
+  	end    
+})
+
+
+
+
+
+Tab:AddButton({
+	Name = "KiciaHook",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kiciahook/kiciahook/refs/heads/main/loader.lua"))()
+  	end    
+})
+
+
+
+
+Tab:AddButton({
+	Name = "Hidden Hub ",
+	Callback = function()
+
+print("Key: 1CggV7Zw8DGxdblLGdROXvolkd9EtsuU, Join Discord If Key Is Not Working: https://discord.gg/hiddenrbx")
+
+--Key: 1CggV7Zw8DGxdblLGdROXvolkd9EtsuU
+--Join Discord If Key Is Not Working: https://discord.gg/hiddenrbx 
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tulontop/HiddenRevamp/refs/heads/main/Loader.luau"))()  
+	end    
+})
+
+
+
+
+Tab:AddButton({
+	Name = "Naok iHub",
+	Callback = function()
+loadstring(game:HttpGet("https://naokihub.vercel.app",true))()
+  	end    
+})
+
+
+
+
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Doors Hubs",
+	Icon = "rbxassetid://107642772703957",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "MSPaint"
+})
+
+
+ local unitpoop = nil
+ 
+
+
+Tab:AddButton({
+	Name = "Ms Paint",
+	Callback = function()
+
+script_key=unitpoop;
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/002c19202c9946e6047b0c6e0ad51f84.lua"))()
+  	end    
+})
+
+
+
+
+Tab:AddTextbox({
+	Name = "Enter Key",
+	Default = "key",
+	TextDisappear = true,
+	Callback = function(Value)
+		unitpoop = Value
+	end	  
+})
+
+
+Tab:AddButton({
+	Name = "Get Key (CHECK CONSOLE FOR LINK)",
+	Callback = function()
+print("https://ads.luarmor.net/get_key?for=-rXJfopyAkrky")
+  	end    
+})
+
+
+
+
+
+
+
+
+
+ local unitpoop22 = nil
+
+
+local Section = Tab:AddSection({
+	Name = "Astral"
+})
+
+
+
+Tab:AddButton({
+	Name = "Astral",
+	Callback = function()
+script_key="unitpoop22";
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/955852b1ca77ce8454cc37e91c40bc33.lua"))()
+end    
+})
+
+
+
+
+
+
+
+
+Tab:AddTextbox({
+	Name = "Enter Key",
+	Default = "key",
+	TextDisappear = true,
+	Callback = function(Value)
+		unitpoop22 = Value
+	end	  
+})
+
+
+
+
+Tab:AddButton({
+	Name = "Get Key (CHECK CONSOLE FOR LINK)",
+	Callback = function()
+print("https://work.ink/1UuR/XuislTmPPCDGJstRSufm")
+  	end    
+})
+
+local Section = Tab:AddSection({
+	Name = "LolHax"
+})
+
+
+
+
+Tab:AddButton({
+	Name = "LolHax V3",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Robloxexploiterz/Release-Lolhax/refs/heads/main/LX%20Doors%20v3.lua"))()
+end    
+})
+
+
+
+
+
+
+
+
+local Section = Tab:AddSection({
+	Name = "BlackKing"
+})
+
+
+
+
+Tab:AddButton({
+	Name = "BlackKing x BobHub",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkDoorsKing/Doors/main/Main"))()
+  	end    
+})
+
+
+local Section = Tab:AddSection({
+	Name = "LeafHub"
+})
+
+
+
+
+Tab:AddButton({
+	Name = "LeafHub (Kaiden Shaders)",
+	Callback = function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/FLOOR-2-DOORS-floor-2-kardian-scripts-leaked-mspaint-Grunberg-s*-18419"))()
+  	end    
+})
+
+
+local Section = Tab:AddSection({
+	Name = "Old MSPaint"
+})
+
+
+Tab:AddButton({
+	Name = "Old MSPaint",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/notpoiu/mspaint/main/main.lua"))()
+  	end    
+})
+
+
+
+
+
+
+
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Doors Features",
+	Icon = "rbxassetid://0",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Trolling Scripts"
+})
+
+
+
+Tab:AddButton({
+	Name = "Shit",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/sinret/rbxscript.com-scripts-reuploads-/main/ds1", true))() 
+end    
+})
+
+
+
+
+
+
+
+
+
+local Section = Tab:AddSection({
+	Name = "Entity Spawners"
+})
+
+
+Tab:AddButton({
+	Name = "Grumble Spawner (PRESS Q TO SPAWN)",
+	Callback = function()
+-- GRUMBLE SPAWNER 
+--Q TO SPAWN
+
+local Speed = 12
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local Debris = game:GetService("Debris")
+local UserInputService = game:GetService("UserInputService")
+
+local Player = Players.LocalPlayer
+local Character = Player.Character or Player.CharacterAdded:Wait()
+
+local Sword = game:GetObjects("rbxassetid://72674416931709")[1]
+
+local Cache = game:GetObjects("rbxassetid://96223289630255")[1]
+local Cache2 = game:GetObjects("rbxassetid://103869039972033")[1]
+
+Cache:Destroy()
+Cache2:Destroy()
+
+Sword.Parent = Player.Backpack
+
+task.spawn(function()
+	local Tool = Sword
+	local Handle = Tool:WaitForChild("Handle")
+	local Humanoid = Character.Humanoid
+	local Torso = Character:FindFirstChild("Torso") or Character:FindFirstChild("HumanoidRootPart")
+
+	local function Create(ty)
+		return function(data)
+			local obj = Instance.new(ty)
+			for k, v in pairs(data) do
+				if type(k) == 'number' then
+					v.Parent = obj
+				else
+					obj[k] = v
+				end
+			end
+			return obj
+		end
+	end
+
+	local BaseUrl = "rbxassetid://"
+
+	local DamageValues = {
+		BaseDamage = 5,
+		SlashDamage = 10,
+		LungeDamage = 30
+	}
+
+	local Animations = {
+		R15Slash = 522635514,
+		R15Lunge = 522638767
+	}
+
+	local Damage = DamageValues.BaseDamage
+
+	local Grips = {
+		Up = CFrame.new(0, 0, -1.70000005, 0, 0, 1, 1, 0, 0, 0, 1, 0),
+		Out = CFrame.new(0, 0, -1.70000005, 0, 1, 0, 1, -0, 0, 0, 0, -1)
+	}
+
+	local Sounds = {
+		Slash = Handle:WaitForChild("SwordSlash"),
+		Lunge = Handle:WaitForChild("SwordLunge"),
+		Unsheath = Handle:WaitForChild("Unsheath")
+	}
+
+	local ToolEquipped = false
+
+	Tool.Grip = Grips.Up
+	Tool.Enabled = true
+
+	local function IsTeamMate(Player1, Player2)
+		return (Player1 and Player2 and not Player1.Neutral and not Player2.Neutral and Player1.TeamColor == Player2.TeamColor)
+	end
+
+	local function TagHumanoid(humanoid, player)
+		local Creator_Tag = Instance.new("ObjectValue")
+		Creator_Tag.Name = "creator"
+		Creator_Tag.Value = player
+		Debris:AddItem(Creator_Tag, 2)
+		Creator_Tag.Parent = humanoid
+	end
+
+	local function UntagHumanoid(humanoid)
+		for i, v in pairs(humanoid:GetChildren()) do
+			if v:IsA("ObjectValue") and v.Name == "creator" then
+				v:Destroy()
+			end
+		end
+	end
+
+	local function CheckIfAlive()
+		return (((Player and Player.Parent and Character and Character.Parent and Humanoid and Humanoid.Parent and Humanoid.Health > 0 and Torso and Torso.Parent) and true) or false)
+	end
+
+	local function Blow(Hit)
+		if not Hit or not Hit.Parent or not CheckIfAlive() or not ToolEquipped then
+			return
+		end
+		local RightArm = Character:FindFirstChild("Right Arm") or Character:FindFirstChild("RightHand")
+		if not RightArm then
+			return
+		end
+		local RightGrip = RightArm:FindFirstChild("RightGrip")
+		if not RightGrip or (RightGrip.Part0 ~= Handle and RightGrip.Part1 ~= Handle) then
+			return
+		end
+		local character = Hit.Parent
+		if character == Character then
+			return
+		end
+		local humanoid = character:FindFirstChildOfClass("Humanoid")
+		if not humanoid or humanoid.Health == 0 then
+			return
+		end
+		local player = Players:GetPlayerFromCharacter(character)
+		if player and (player == Player or IsTeamMate(Player, player)) then
+			return
+		end
+		UntagHumanoid(humanoid)
+		TagHumanoid(humanoid, Player)
+		humanoid:TakeDamage(Damage)	
+	end
+
+	local function Attack()
+		Damage = DamageValues.SlashDamage
+		Sounds.Slash:Play()
+
+		if Humanoid then
+			if Humanoid.RigType == Enum.HumanoidRigType.R6 then
+				local Anim = Instance.new("StringValue")
+				Anim.Name = "toolanim"
+				Anim.Value = "Slash"
+				Anim.Parent = Tool
+			elseif Humanoid.RigType == Enum.HumanoidRigType.R15 then
+				local Anim = Tool:FindFirstChild("R15Slash")
+				if Anim then
+					local Track = Humanoid:LoadAnimation(Anim)
+					Track:Play(0)
+				end
+			end
+		end	
+	end
+
+	local function Lunge()
+		Damage = DamageValues.LungeDamage
+
+		Sounds.Lunge:Play()
+
+		if Humanoid then
+			if Humanoid.RigType == Enum.HumanoidRigType.R6 then
+				local Anim = Instance.new("StringValue")
+				Anim.Name = "toolanim"
+				Anim.Value = "Lunge"
+				Anim.Parent = Tool
+			elseif Humanoid.RigType == Enum.HumanoidRigType.R15 then
+				local Anim = Tool:FindFirstChild("R15Lunge")
+				if Anim then
+					local Track = Humanoid:LoadAnimation(Anim)
+					Track:Play(0)
+				end
+			end
+		end	
+
+		wait(0.2)
+		Tool.Grip = Grips.Out
+		wait(0.6)
+		Tool.Grip = Grips.Up
+
+		Damage = DamageValues.SlashDamage
+	end
+
+	Tool.Enabled = true
+	local LastAttack = 0
+
+	local function Activated()
+		if not Tool.Enabled or not ToolEquipped or not CheckIfAlive() then
+			return
+		end
+		Tool.Enabled = false
+		local Tick = RunService.Stepped:wait()
+		if (Tick - LastAttack < 0.2) then
+			Lunge()
+		else
+			Attack()
+		end
+		LastAttack = Tick
+		Damage = DamageValues.BaseDamage
+		local SlashAnim = (Tool:FindFirstChild("R15Slash") or Create("Animation"){
+			Name = "R15Slash",
+			AnimationId = BaseUrl .. Animations.R15Slash,
+			Parent = Tool
+		})
+
+		local LungeAnim = (Tool:FindFirstChild("R15Lunge") or Create("Animation"){
+			Name = "R15Lunge",
+			AnimationId = BaseUrl .. Animations.R15Lunge,
+			Parent = Tool
+		})
+		Tool.Enabled = true
+	end
+
+	local function Equipped()
+		if not CheckIfAlive() then
+			return
+		end
+		ToolEquipped = true
+		Sounds.Unsheath:Play()
+	end
+
+	local function Unequipped()
+		Tool.Grip = Grips.Up
+		ToolEquipped = false
+	end
+
+	Tool.Activated:Connect(Activated)
+	Tool.Equipped:Connect(Equipped)
+	Tool.Unequipped:Connect(Unequipped)
+
+	Handle.Touched:Connect(Blow)
+end)
+
+UserInputService.InputBegan:Connect(function(input, gP)
+	if input.KeyCode == Enum.KeyCode.Q and not gP then
+		local Dummy = game:GetObjects("rbxassetid://96223289630255")[1]
+		local Grumbo = game:GetObjects("rbxassetid://103869039972033")[1]
+
+		Dummy.Parent = workspace
+		Grumbo.Parent = workspace
+
+		Dummy.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(math.random(-15, 15), 0, math.random(-15, 15))
+
+		task.wait()
+
+		local Idle = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Idle)
+		Idle.Looped = true
+		Idle:Play()
+
+		local Blink = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Blink)
+
+		local Stun = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Stun)
+
+		task.spawn(function()
+			while Grumbo:IsDescendantOf(workspace) do
+				task.wait(math.random(2, 5))
+				Blink:Play()
+			end
+		end)
+
+		local function followPlayer()
+			local Direction = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).unit
+			Dummy.HumanoidRootPart.Velocity = Direction * Speed
+			Dummy.HumanoidRootPart.CFrame = CFrame.new(Dummy.HumanoidRootPart.Position, Character.HumanoidRootPart.Position)
+		end
+
+		Dummy.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+			if Dummy.Humanoid.Health <= 0 then
+				Stun:Play()
+				task.wait(1)
+				Dummy:Destroy()
+				Grumbo:Destroy()
+			end
+		end)
+
+		RunService.RenderStepped:Connect(function()
+			if Grumbo:IsDescendantOf(workspace) and Dummy:IsDescendantOf(workspace) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
+				local Distance = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).magnitude
+
+				if Distance <= math.huge then
+					followPlayer()
+				end
+
+				Grumbo:PivotTo(Dummy.HumanoidRootPart.CFrame)
+			end
+		end)
+	end
+end)
+end    
+})
+
+
+
+
+
+
+Tab:AddButton({
+	Name = "FE Jack Spawner ( WORKS SOMETIMES :/ )",
+	Callback = function()
+loadstring(game:HttpGet('https://pastebin.com/raw/hyay9T8n'))()
+end    
+})
+
+
+local Section = Tab:AddSection({
+	Name = "Behavior Packs"
+})
+
+Tab:AddButton({
+	Name = "MiniMap",
+	Callback = function()
+-- settings
+local MINIMAP_SIZE = 0.12
+local MINIMAP_SCALE = 500
+local MINIMAP_PADDING = 12
+
+local ELEMENT_BORDER = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- script
+local RunService = game:GetService("RunService")
+local Player = game:GetService("Players").LocalPlayer
+local CurrentRooms = workspace:WaitForChild("CurrentRooms")
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "Minimap"
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
+ScreenGui.Parent = Player.PlayerGui
+
+local MinimapFrame = Instance.new("Frame")
+MinimapFrame.Size = UDim2.fromScale(MINIMAP_SIZE, MINIMAP_SIZE)
+MinimapFrame.SizeConstraint = Enum.SizeConstraint.RelativeXX
+MinimapFrame.AnchorPoint = Vector2.new(0, 1)
+MinimapFrame.Position = UDim2.new(0, MINIMAP_PADDING, 1, -MINIMAP_PADDING)
+MinimapFrame.BackgroundColor3 = Color3.new()
+MinimapFrame.ClipsDescendants = true
+MinimapFrame.ZIndex = -1
+MinimapFrame.Parent = ScreenGui
+
+local ElementHolder = Instance.new("Frame")
+ElementHolder.BackgroundTransparency = 1
+ElementHolder.Size = UDim2.fromScale(1, 1)
+ElementHolder.Position = UDim2.fromScale(0.5, 0.5)
+ElementHolder.AnchorPoint = Vector2.new(0.5, 0.5)
+ElementHolder.ZIndex = 0
+ElementHolder.Parent = MinimapFrame
+
+local Arrow = Instance.new("ImageLabel")
+Arrow.Size = UDim2.fromScale(0.07, 0.09)
+Arrow.Position = UDim2.fromScale(0.5, 0.5)
+Arrow.AnchorPoint = Vector2.new(0.5, 0.5)
+Arrow.BackgroundTransparency = 1
+Arrow.Image = "rbxassetid://13069495837"
+Arrow.ZIndex = 12345
+Arrow.Parent = MinimapFrame
+
+local function AddPartToMap(Part: BasePart, Color: Color3, ZIndex: number, SizeOverride: UDim2?)
+	local Frame = Instance.new("Frame")
+	Frame.Size = SizeOverride or UDim2.new(Part.Size.X / MINIMAP_SCALE, -ELEMENT_BORDER * 2, Part.Size.Z / MINIMAP_SCALE, -ELEMENT_BORDER * 2)
+	Frame.Position = UDim2.fromScale(Part.Position.X / MINIMAP_SCALE + 0.5, Part.Position.Z / MINIMAP_SCALE + 0.5)
+	Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+	Frame.BackgroundColor3 = Color3.new()
+	Frame.BorderColor3 = Color
+	Frame.BorderSizePixel = ELEMENT_BORDER
+	Frame.ZIndex = ZIndex + 2
+	Frame.Rotation = Part.Rotation.Y
+	Frame.Parent = ElementHolder
+end
+
+local function AddRoomToMap(Room: Model)
+	for _, Part in pairs(Room:GetChildren()) do
+		if not Part:IsA("BasePart") then continue end
+		
+		if Part.CollisionGroup == "BaseCheck" then
+			AddPartToMap(Part, Color3.new(0, 0.85, 0), 0)
+		elseif Part == Room.PrimaryPart then
+			AddPartToMap(Part, Color3.new(0.85, 0, 0), 1, UDim2.fromScale(8 / MINIMAP_SCALE, 8 / MINIMAP_SCALE))
+		end
+	end
+end
+
+for _, Room in pairs(CurrentRooms:GetChildren()) do
+	AddRoomToMap(Room)
+end
+
+CurrentRooms.ChildAdded:Connect(function(NewRoom)
+	repeat
+		task.wait()
+	until NewRoom:FindFirstChild("RoomEntrance") and NewRoom:FindFirstChild(NewRoom.Name)
+	
+	AddRoomToMap(NewRoom)
+end)
+
+RunService.RenderStepped:Connect(function()
+	local Character = Player.Character; if not Character then return end
+	local Root = Character:FindFirstChild("Collision"); if not Root then return end
+	local LookVector = workspace.CurrentCamera.CFrame.LookVector
+	local Rotation = math.atan2(LookVector.X, LookVector.Z)
+	
+	ElementHolder.Position = UDim2.fromScale(0.5 - Root.Position.X / MINIMAP_SCALE, 0.5 - Root.Position.Z / MINIMAP_SCALE)
+	Arrow.Rotation = -math.deg(Rotation) + 180
+end)
+end    
+})
+
+
+
+
+
+
+Tab:AddButton({
+	Name = "Scary Mode :(",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DripCapybara/Doors-Modes/refs/heads/main/CreepyMode/ObfuscatedMain.lua"))()
+  	end    
+})
+
+
+
+
+
+
+
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Doors Items",
+	Icon = "rbxassetid://0",
+	PremiumOnly = false
+})
+
+
+
+local Section = Tab:AddSection({
+	Name = "Bottles"
+})
+
+
+Tab:AddButton({
+	Name = "Bottle of MoonLight",
+	Callback = function()
+	  loadstring(game:HttpGet('https://gist.githubusercontent.com/IdkMyNameLoll/04d7dd5e02688624b958b8c2604b924c/raw/9e86b34249f44ed2dd433176e67daaf3db30cde8/MoonBottle'))() 
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Bottle of SpiralLight",
+	Callback = function()
+loadstring(game:HttpGet('https://gist.githubusercontent.com/IdkMyNameLoll/8b05c837bea9effac2554340465b4be1/raw/3f3be0ee72e7f153db39a16a40fa63dce6cde72d/SpiralBottle'))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Bottle of StarGuggle",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/notpoiu/Scripts/refs/heads/main/StarJug.lua"))()
+  	end    
+})
+
+
+local Section = Tab:AddSection({
+	Name = "Tablets"
+})
+
+
+
+Tab:AddButton({
+	Name = "Tablet in Rift",
+	Callback = function()
+-- TABLET SCRIPT BY COKROACHE
+
+local function TheTablet()
+	_G.scanner_fps = 30
+	_G.disable_static = false
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/notpoiu/Scripts/main/Scanner.lua"))()
+end
+
+
+local Table =  workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]:FindFirstChild("Desk_Bell", true)
+local RiftCFrame = Table.Base.CFrame
+local model = game:GetObjects("rbxassetid://12500938429")[1]
+model.Parent = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
+model:PivotTo(RiftCFrame)
+
+model.Center.Prompt.Triggered:Connect(function()
+	local Rift = model.Center
+	model.Center.Prompt.Enabled = false
+
+	task.spawn(function() 
+		_G.OnShop = true
+
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/DeividComSono/Scripts/main/Scanner.lua'))()
+		TheTablet()
+	end)
+
+	for _,v in pairs(Rift.ParticlesIn:GetChildren()) do
+		v.Enabled = false
+	end
+
+	for _,v in pairs(Rift:GetDescendants()) do
+		if v:IsA("Sound") then
+			v.Volume = 0
+		end
+	end
+
+	for _,v in pairs(Rift:GetDescendants()) do
+		if v:IsA("Light") then
+			v.Enabled = false
+		end
+	end
+
+	Rift.ItemHolder.Item.Enabled = false
+	Rift.Parent.Rift.Transparency = 1
+
+	Rift.ParticlesOut.Core:Emit(5)
+	Rift.ParticlesOut.Explosion:Emit(1)
+	Rift.ParticlesOut.RiftLines2:Emit(1)
+	Rift.ParticlesOut.RiftLines:Emit(1)
+	Rift.ParticlesOut.Triangles:Emit(5)
+	Rift.ParticlesOut.ZoomParticle:Emit(5)
+	task.wait()
+	TheTablet()
+end)
+end    
+})
+
+
+
+
+Tab:AddButton({
+	Name = "Scanner",
+	Callback = function()
+_G.scanner_fps = 120
+_G.disable_static = false
+loadstring(game:HttpGet("https://raw.githubusercontent.com/notpoiu/Scripts/main/Scanner.lua"))()
+end    
+})
+
+
+Tab:AddButton({
+	Name = "Gold Scanner",
+	Callback = function()
+_G.scanner_fps = 120
+_G.disable_static = false
+loadstring(game:HttpGet("https://pastebin.com/raw/umRteEPy"))()
+end    
+})
+
+
+local Section = Tab:AddSection({
+	Name = "Plushies"
+})
+
+
+
+Tab:AddButton({
+	Name = "Seek Plush",
+	Callback = function()
+-- seek plush
+local plr = game.Players.LocalPlayer
+local hum = plr.Character:WaitForChild("Humanoid")
+
+local plush = game:GetObjects("rbxassetid://13613269677")[1]
+plush.Parent = plr.Backpack
+local anim = hum:LoadAnimation(plush.A.Hold)
+
+plush.Equipped:Connect(function()
+  anim:Play()
+end)
+plush.Unequipped:Connect(function()
+  anim:Stop()
+end)
+
+plush.Activated:Connect(function()
+  plush.Toy:Play()
+end)
+
+end    
+})
+
+
+
+
+Tab:AddButton({
+	Name = "Jeff Plush",
+	Callback = function()
+local tool = game:GetObjects("rbxassetid://13069619857")[1]
+tool.Parent = game.Players.LocalPlayer.Backpack
+end    
+})
+
+
+
+
+
+
+Tab:AddButton({
+	Name = "Dread Plush",
+	Callback = function()
+-- seek plush
+local plr = game.Players.LocalPlayer
+local hum = plr.Character:WaitForChild("Humanoid")
+
+local plush = game:GetObjects("rbxassetid://12554352475")[1]
+plush.Parent = plr.Backpack
+local anim = hum:LoadAnimation(plush.A.Hold)
+
+plush.Equipped:Connect(function()
+  anim:Play()
+end)
+plush.Unequipped:Connect(function()
+  anim:Stop()
+end)
+
+plush.Activated:Connect(function()
+  plush.Toy:Play()
+end)
+
+end    
+})
+
+
+
+
+local Section = Tab:AddSection({
+	Name = "Random Items"
+})
+
+
+Tab:AddButton({
+	Name = "Shears On Everything",
+	Callback = function()
+local Tool = game:GetObjects("rbxassetid://12685165702")[1]
+local Humanoid = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+local Sound = Instance.new("Sound")
+
+Tool.Parent = game.Players.LocalPlayer.Backpack
+
+Sound.PlaybackSpeed = 1.25
+Sound.SoundId = "rbxassetid://9118823101"
+Sound.Parent = Tool
+
+Tool.Activated:Connect(function()
+    local Use = Tool.Animations.use
+    local UseTrack = Humanoid:LoadAnimation(Use)
+
+    UseTrack:Play()
+    Sound:Play()
+    wait(0.25)
+    Sound:Play()
+    game:GetService("Players").LocalPlayer:GetMouse().Target:FindFirstAncestorOfClass("Model"):Destroy()
+end)
+
+Tool.Equipped:Connect(function()
+    local Idle = Tool.Animations.idle
+    local IdleTrack = Humanoid:LoadAnimation(Idle)
+
+    IdleTrack:Play()
+end)
+Tool.Unequipped:Connect(function()
+    for _,anim in pairs(Humanoid.Animator:GetPlayingAnimationTracks()) do
+        anim:Stop()
+    end
+end)  	end    
+})
+
+
+
+Tab:AddButton({
+	Name = "Golden ShakeLight",
+	Callback = function()
+ loadstring(game:HttpGet(("https://raw.githubusercontent.com/aadyian9000/the-thing/main/GoldenGummyFlashlight.lua"),true))() 
+  	end    
+})
+
+
+
+
+
+Tab:AddButton({
+	Name = "Seek Gun",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/notpoiu/Scripts/main/seekgun.lua"))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Rocket Launcher",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/notpoiu/Scripts/main/rocketLauncher.lua"))()
+end    
+})
+
+Tab:AddButton({
+	Name = "Size Changer",
+	Callback = function()
+end    
+})
+
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Dev Scripts",
+	Icon = "rbxassetid://107642772703957",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = " One Click Hubs (ONLY FOR MODS)"
+})
+
+
+
+
+
+
+Tab:AddButton({
+	Name = "Ms Paint One Click (COKROACHE ONLY)",
+	Callback = function()
+
+script_key="lrQxMnyCUhpcIZJpVWELvcPYCkSaiuQj";
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/002c19202c9946e6047b0c6e0ad51f84.lua"))()
+  	end    
+})
+
+
+
+Tab:AddButton({
+	Name = "Astral Hub (COKROACHE ONLY)",
+	Callback = function()
+
+script_key="xjdADQbagbVeYYjFmbufATIxoXWteCCQ";
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/955852b1ca77ce8454cc37e91c40bc33.lua"))()
+  	end    
+})
+
+
+
+Tab:AddButton({
+	Name = "Ms Paint One Click (FATTYZONE ONLY)",
+	Callback = function()
+
+script_key="XMmZYkGWcNwPAIqmxUGruWzFOTZDDkYg";
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/002c19202c9946e6047b0c6e0ad51f84.lua"))()
+  	end    
+})
+
+
+
+Tab:AddButton({
+	Name = "Astral Hub (FATTYZONE ONLY)",
+	Callback = function()
+
+script_key="0";
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/955852b1ca77ce8454cc37e91c40bc33.lua"))()
+  	end    
+})
+
+
+
+
+
+
+
+OrionLib:Init()
+
