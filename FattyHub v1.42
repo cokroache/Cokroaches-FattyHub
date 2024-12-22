@@ -936,12 +936,29 @@ end
 })
 
 
+
+local Section = Tab:AddSection({
+	Name = "Features"
+})
+
+
+
+
 Tab:AddButton({
 	Name = "Crash Server (ADMIN PANNEL NEEDED!!!)",
 	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/notpoiu/Scripts/refs/heads/main/doors/crasher.luau"))() -- ADMIN PANNEL NEEDED    
+loadstring(game:HttpGet("https://raw.githubusercontent.com/notpoiu/Scripts/refs/heads/main/doors/crasher.luau"))() -- ADMIN PANNEL NEEDED
+end
 })
 
+
+Tab:AddButton({
+	Name = "Auto A-1000",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DaRealGeo/roblox/master/rooms-autowalk"))()
+end
+  
+})
 
 
 
@@ -1264,30 +1281,6 @@ local MINIMAP_SCALE = 500
 local MINIMAP_PADDING = 12
 
 local ELEMENT_BORDER = 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -- script
 local RunService = game:GetService("RunService")
 local Player = game:GetService("Players").LocalPlayer
