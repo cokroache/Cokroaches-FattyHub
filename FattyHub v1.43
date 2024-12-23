@@ -966,7 +966,7 @@ end
 })
 
 
-ab:AddButton({
+Tab:AddButton({
 	Name = "Energize Animations",
 	Callback = function()
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Energize-10408"))()
