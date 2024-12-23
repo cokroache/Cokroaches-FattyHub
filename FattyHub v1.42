@@ -8,6 +8,13 @@ local connection
 local Plr = game.Players.LocalPlayer
 
 
+
+
+
+
+
+
+
 local function notify(message)
 	StarterGui:SetCore("SendNotification", {
 		Title = "Notification";
@@ -283,7 +290,10 @@ local Section = Tab:AddSection({
 	Name = "ESP"
 })
 
-local EspColour = nil
+
+
+
+local EspColour = Color3.fromRGB(255, 255, 255)
 local TextColour = Color3.fromRGB(0, 0, 0)
 
 
@@ -297,14 +307,14 @@ Tab:AddColorpicker({
 })
 
 
+local FillTransparency = 0.5
+local OutlineTransparency = 0
+
 
 Tab:AddButton({
-Name = "ESP",
-Callback = function(Value)
-
+	Name = "ESP (BUGGY)",
+	Callback = function(Value)
 		local function esplook()
-			
-			
 			local esp_settings = { ---- table for esp settings 
 				textsize = 30,
 				colour = TextColour
@@ -339,11 +349,12 @@ Callback = function(Value)
 				end
 			end)
 		end
+		
+		
+		
 		local FillColor = EspColour
 		local DepthMode = "AlwaysOnTop"
-		local FillTransparency = 0.5
 		local OutlineColor = Color3.fromRGB(255,255,255)
-		local OutlineTransparency = 0
 
 		local CoreGui = game:FindService("CoreGui")
 		local Players = game:FindService("Players")
@@ -388,8 +399,7 @@ Callback = function(Value)
 				connections[plr]:Disconnect()
 			end
 		end)
-	 
-esplook()
+		esplook()
 	end
 })
 
@@ -428,6 +438,8 @@ Tab:AddButton({
 		bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
 		bambam.Force = Vector3.new(power,0,power)
 		bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+		FillTransparency = 1
+		OutlineTransparency = 1
 	end    
 })
 
@@ -581,6 +593,19 @@ Tab:AddButton({
 })
 
 
+Tab:AddButton({
+	Name = "RESET SETTINGS!",
+	Callback = function()
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+		game.Workspace.Camera.FieldOfView = 70
+		game.Players.LocalPlayer.CameraMode = "Classic"
+		game.Players.LocalPlayer.CameraMinZoomDistance = 0
+		game.Players.LocalPlayer.CameraMaxZoomDistance = 130
+		game.Workspace.Camera.CameraType = "Custom"
+		
+	end    
+})
 
 
 
@@ -632,7 +657,7 @@ Tab:AddTextbox({
 	Default = "key",
 	TextDisappear = true,
 	Callback = function(Value)
-		unitpoop = Value
+		unitpoopa = Value
 	end	  
 })
 
@@ -842,6 +867,17 @@ Tab:AddButton({
 
 
 
+local Section = Tab:AddSection({
+	Name = "Dress To Impress"
+})
+
+
+Tab:AddButton({
+	Name = "DTI Gui | Flipper",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/DTI-GUI-V2/main/dti_gui_v2.lua",true))()
+	end    
+})
 
 
 
