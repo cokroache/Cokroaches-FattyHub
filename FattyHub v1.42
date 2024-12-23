@@ -37,6 +37,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+Tab:AddLabel(" ")
 
 Tab:AddParagraph("Player Settings","- Character Adjustments ")
 
@@ -60,7 +61,7 @@ local Section = Tab:AddSection({
 Tab:AddButton({
 	Name = "Fly (F)",
 	Callback = function(Value)
-	
+
 		repeat wait()
 		until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Torso") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid")
 		local mouse = game.Players.LocalPlayer:GetMouse()
@@ -208,10 +209,9 @@ Tab:AddSlider({
 
 	end    
 })
-
+Tab:AddLabel(" ")
 
 Tab:AddParagraph("Visuals","- Camera ")
-
 
 
 
@@ -283,52 +283,63 @@ local Section = Tab:AddSection({
 	Name = "ESP"
 })
 
+local EspColour = nil
+local TextColour = Color3.fromRGB(0, 0, 0)
+
+
+
+Tab:AddColorpicker({
+	Name = "Esp Colour",
+	Default = Color3.fromRGB(255, 255, 255),
+	Callback = function(Value)
+		EspColour = Value
+	end	  
+})
+
 
 
 Tab:AddButton({
-	Name = "ESP (Only For Players)",
-	Callback = function(Value)
-		--- Tut
+Name = "ESP",
+Callback = function(Value)
 
-		local esp_settings = { ---- table for esp settings 
-			textsize = 30,
-			colour = TextColour
-		}
+		local function esplook()
+			
+			
+			local esp_settings = { ---- table for esp settings 
+				textsize = 30,
+				colour = TextColour
+			}
 
-		local gui = Instance.new("BillboardGui")
-		local esp = Instance.new("TextLabel",gui) ---- new instances to make the billboard gui and the textlabel
+			local gui = Instance.new("BillboardGui")
+			local esp = Instance.new("TextLabel",gui) ---- new instances to make the billboard gui and the textlabel
 
 
 
-		gui.Name = "Cracked esp"; ---- properties of the esp
-		gui.ResetOnSpawn = false
-		gui.AlwaysOnTop = true;
-		gui.LightInfluence = 0;
-		gui.Size = UDim2.new(1.75, 0, 1.75, 0);
-		esp.BackgroundColor3 = Color3.fromRGB(TextColour);
-		esp.Text = ""
-		esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
-		esp.BorderSizePixel = 4;
-		esp.BorderColor3 = Color3.new(esp_settings.colour)
-		esp.BorderSizePixel = 0
-		esp.Font = "GothamSemibold"
-		esp.TextSize = esp_settings.textsize
-		esp.TextColor3 = Color3.fromRGB(esp_settings.colour) -- text colour
+			gui.Name = "Cracked esp"; ---- properties of the esp
+			gui.ResetOnSpawn = false
+			gui.AlwaysOnTop = true;
+			gui.LightInfluence = 0;
+			gui.Size = UDim2.new(1.75, 0, 1.75, 0);
+			esp.BackgroundColor3 = esp_settings.colour;
+			esp.Text = ""
+			esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
+			esp.BorderSizePixel = 4;
+			esp.BorderColor3 =  esp_settings.colour
+			esp.BorderSizePixel = 0
+			esp.Font = "GothamSemibold"
+			esp.TextSize = esp_settings.textsize
+			esp.TextColor3 =  esp_settings.colour -- text colour
 
-		game:GetService("RunService").RenderStepped:Connect(function() ---- loops faster than a while loop :)
-			for i,v in pairs (game:GetService("Players"):GetPlayers()) do
-				if v ~= game:GetService("Players").LocalPlayer and v.Character.Head:FindFirstChild("Cracked esp")==nil  then -- craeting checks for team check, local player etc
-					esp.Text = "{"..v.Name.."}"
-					gui:Clone().Parent = v.Character.Head
+			game:GetService("RunService").RenderStepped:Connect(function() ---- loops faster than a while loop :)
+				for i,v in pairs (game:GetService("Players"):GetPlayers()) do
+					if v ~= game:GetService("Players").LocalPlayer and v.Character.Head:FindFirstChild("Cracked esp")==nil  then -- craeting checks for team check, local player etc
+						esp.Text = "{"..v.Name.."}"
+						gui:Clone().Parent = v.Character.Head
+					end
 				end
-			end
-		end)
-		
-		
-		
-		
-
-		local FillColor = Color3.fromRGB(EspColour)
+			end)
+		end
+		local FillColor = EspColour
 		local DepthMode = "AlwaysOnTop"
 		local FillTransparency = 0.5
 		local OutlineColor = Color3.fromRGB(255,255,255)
@@ -377,27 +388,16 @@ Tab:AddButton({
 				connections[plr]:Disconnect()
 			end
 		end)
-	end 
+	 
+esplook()
+	end
 })
 
 
-Tab:AddTextbox({
-	Name = "ESP Colour",
-	Default = "0,255,0",
-	TextDisappear = true,
-	Callback = function(Value)
-		EspColour = Value
-	end	  
-})
 
-Tab:AddTextbox({
-	Name = "Esp Text Colour",
-	Default = "225,225,225",
-	TextDisappear = true,
-	Callback = function(Value)
-		TextColour = Value
-	end	  
-})
+
+
+Tab:AddLabel(" ")
 
 
 Tab:AddParagraph("Trolling","- Features  ")
@@ -2091,9 +2091,9 @@ Tab:AddButton({
 			Handle.Touched:Connect(Blow)
 		end)
 
-		
-		
-		
+
+
+
 	end    
 })
 
