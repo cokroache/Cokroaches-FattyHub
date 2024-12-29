@@ -5739,7 +5739,7 @@ Tab:AddButton({
 
 
 Tab:AddButton({
-	Name = "Best Friend",
+	Name = "GF",
 	Callback = function()
 	  function Message(message)
     if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
