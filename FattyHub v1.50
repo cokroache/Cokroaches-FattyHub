@@ -6998,7 +6998,7 @@ Tab:AddButton({
 	Name = "Ms Paint",
 	Callback = function()
 
-		script_key="NTPFDHXfrapfDXKzhLdVlVpqoQqMkujw";
+		script_key="CWfrHXsGTWdsRUHytkMleOWvNmkyZSmn";
 		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/002c19202c9946e6047b0c6e0ad51f84.lua"))()
 	end    
 })
