@@ -6533,6 +6533,13 @@ Tab:AddButton({
 	end    
 })
 
+Tab:AddButton({
+	Name = "Screech Plush",
+	Callback = function()
+		local tool = game:GetObjects("rbxassetid://74061276210946")[1]
+		tool.Parent = game.Players.LocalPlayer.Backpack
+	end    
+})
 
 
 Tab:AddButton({
