@@ -6519,8 +6519,21 @@ local Section = Tab:AddSection({
 Tab:AddButton({
 	Name = "Rush Plush",
 	Callback = function()
-		local tool = game:GetObjects("rbxassetid://94812683849473")[1]
-		tool.Parent = game.Players.LocalPlayer.Backpack
+	local plush = game:GetObjects("rbxassetid://94812683849473")[1]
+		plush.Parent = plr.Backpack
+		local anim = hum:LoadAnimation(plush.A.Hold)
+
+		plush.Equipped:Connect(function()
+			anim:Play()
+		end)
+		plush.Unequipped:Connect(function()
+			anim:Stop()
+		end)
+
+		plush.Activated:Connect(function()
+			plush.Toy:Play()
+		end)
+
 	end    
 })
 
@@ -6528,16 +6541,42 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "Ambush Plush",
 	Callback = function()
-		local tool = game:GetObjects("rbxassetid://104823241595978")[1]
-		tool.Parent = game.Players.LocalPlayer.Backpack
+	local plush = game:GetObjects("rbxassetid://104823241595978")[1]
+		plush.Parent = plr.Backpack
+		local anim = hum:LoadAnimation(plush.A.Hold)
+
+		plush.Equipped:Connect(function()
+			anim:Play()
+		end)
+		plush.Unequipped:Connect(function()
+			anim:Stop()
+		end)
+
+		plush.Activated:Connect(function()
+			plush.Toy:Play()
+		end)
+
 	end    
 })
 
 Tab:AddButton({
 	Name = "Screech Plush",
 	Callback = function()
-		local tool = game:GetObjects("rbxassetid://74061276210946")[1]
-		tool.Parent = game.Players.LocalPlayer.Backpack
+		local plush = game:GetObjects("rbxassetid://74061276210946")[1]
+		plush.Parent = plr.Backpack
+		local anim = hum:LoadAnimation(plush.A.Hold)
+
+		plush.Equipped:Connect(function()
+			anim:Play()
+		end)
+		plush.Unequipped:Connect(function()
+			anim:Stop()
+		end)
+
+		plush.Activated:Connect(function()
+			plush.Toy:Play()
+		end)
+
 	end    
 })
 
@@ -6573,8 +6612,21 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "Figure Plush",
 	Callback = function()
-		local tool = game:GetObjects("rbxassetid://80820339914987")[1]
-		tool.Parent = game.Players.LocalPlayer.Backpack
+	local plush = game:GetObjects("rbxassetid://80820339914987")[1]
+		plush.Parent = plr.Backpack
+		local anim = hum:LoadAnimation(plush.A.Hold)
+
+		plush.Equipped:Connect(function()
+			anim:Play()
+		end)
+		plush.Unequipped:Connect(function()
+			anim:Stop()
+		end)
+
+		plush.Activated:Connect(function()
+			plush.Toy:Play()
+		end)
+
 	end    
 })
 
