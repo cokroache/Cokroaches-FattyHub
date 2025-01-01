@@ -6521,7 +6521,7 @@ Tab:AddButton({
 	Callback = function()
 	local plr = game.Players.LocalPlayer
 		local hum = plr.Character:WaitForChild("Humanoid")
-	local plush = game:GetObjects("rbxassetid://94812683849473")[1]
+	local plush = game:GetObjects("rbxassetid://72025883311382")[1]
 		plush.Parent = plr.Backpack
 		local anim = hum:LoadAnimation(plush.A.Hold)
 
@@ -6545,7 +6545,7 @@ Tab:AddButton({
 	Callback = function()
 	local plr = game.Players.LocalPlayer
 		local hum = plr.Character:WaitForChild("Humanoid")
-	local plush = game:GetObjects("rbxassetid://104823241595978")[1]
+	local plush = game:GetObjects("rbxassetid://129406418315786")[1]
 		plush.Parent = plr.Backpack
 		local anim = hum:LoadAnimation(plush.A.Hold)
 
@@ -6568,7 +6568,7 @@ Tab:AddButton({
 	Callback = function()
 	local plr = game.Players.LocalPlayer
 		local hum = plr.Character:WaitForChild("Humanoid")
-		local plush = game:GetObjects("rbxassetid://74061276210946")[1]
+		local plush = game:GetObjects("rbxassetid://76674867809939")[1]
 		plush.Parent = plr.Backpack
 		local anim = hum:LoadAnimation(plush.A.Hold)
 
@@ -6620,7 +6620,7 @@ Tab:AddButton({
 	Callback = function()
 	local plr = game.Players.LocalPlayer
 		local hum = plr.Character:WaitForChild("Humanoid")
-	local plush = game:GetObjects("rbxassetid://80820339914987")[1]
+	local plush = game:GetObjects("rbxassetid://91952805079733")[1]
 		plush.Parent = plr.Backpack
 		local anim = hum:LoadAnimation(plush.A.Hold)
 
@@ -6639,6 +6639,28 @@ Tab:AddButton({
 })
 
 
+Tab:AddButton({
+	Name = " Action 'Figure'",
+	Callback = function()
+	local plr = game.Players.LocalPlayer
+		local hum = plr.Character:WaitForChild("Humanoid")
+	local plush = game:GetObjects("rbxassetid://121628672556065")[1]
+		plush.Parent = plr.Backpack
+		local anim = hum:LoadAnimation(plush.A.Hold)
+
+		plush.Equipped:Connect(function()
+			anim:Play()
+		end)
+		plush.Unequipped:Connect(function()
+			anim:Stop()
+		end)
+
+		plush.Activated:Connect(function()
+			plush.Toy:Play()
+		end)
+
+	end    
+})
 
 
 
@@ -6688,7 +6710,7 @@ Tab:AddButton({
 	Callback = function()
 	local plr = game.Players.LocalPlayer
 		local hum = plr.Character:WaitForChild("Humanoid")
-		local plush = game:GetObjects("rbxassetid://80915151932453")[1]
+		local plush = game:GetObjects("rbxassetid://133913591697836")[1]
 		plush.Parent = plr.Backpack
 		local anim = hum:LoadAnimation(plush.A.Hold)
 
@@ -6762,7 +6784,9 @@ Tab:AddButton({
 			for _,anim in pairs(Humanoid.Animator:GetPlayingAnimationTracks()) do
 				anim:Stop()
 			end
-		end)  	end    
+		end)  
+end    
+
 })
 
 
@@ -7058,8 +7082,22 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "Big Shit",
 	Callback = function()
-		local tool = game:GetObjects("rbxassetid://111397088655560")[1]
-		tool.Parent = game.Players.LocalPlayer.Backpack
+			local plr = game.Players.LocalPlayer
+		local hum = plr.Character:WaitForChild("Humanoid")
+		local plush = game:GetObjects("rbxassetid://112573993544884")[1]
+		plush.Parent = plr.Backpack
+		local anim = hum:LoadAnimation(plush.A.Hold)
+
+		plush.Equipped:Connect(function()
+			anim:Play()
+		end)
+		plush.Unequipped:Connect(function()
+			anim:Stop()
+		end)
+
+		plush.Activated:Connect(function()
+			plush.Toy:Play()
+		end)
 	end    
 })
 
