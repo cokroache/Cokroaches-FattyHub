@@ -32,7 +32,7 @@ OrionLib:MakeNotification({
 
 
 
-local Window = OrionLib:MakeWindow({Name = "Cokroache's Fatty Hub V1.51", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "Cokroache's Fatty Hub V1.52", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 
 
