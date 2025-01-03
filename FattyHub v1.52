@@ -6731,14 +6731,14 @@ Tab:AddButton({
 
 
 local Section = Tab:AddSection({
-	Name = "Plushies"
+	Name = "Dolls"
 })
 
 
 
 
 Tab:AddButton({
-	Name = "Rush Plush",
+	Name = "Rush Doll",
 	Callback = function()
 	local plr = game.Players.LocalPlayer
 		local hum = plr.Character:WaitForChild("Humanoid")
@@ -6762,7 +6762,7 @@ Tab:AddButton({
 
 
 Tab:AddButton({
-	Name = "Ambush Plush",
+	Name = "Ambush Doll",
 	Callback = function()
 	local plr = game.Players.LocalPlayer
 		local hum = plr.Character:WaitForChild("Humanoid")
@@ -6785,11 +6785,64 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
-	Name = "Screech Plush",
+	Name = "Action 'Figure'",
 	Callback = function()
 	local plr = game.Players.LocalPlayer
 		local hum = plr.Character:WaitForChild("Humanoid")
-		local plush = game:GetObjects("rbxassetid://76674867809939")[1]
+	local plush = game:GetObjects("rbxassetid://121628672556065")[1]
+		plush.Parent = plr.Backpack
+		local anim = hum:LoadAnimation(plush.A.Hold)
+
+		plush.Equipped:Connect(function()
+			anim:Play()
+		end)
+		plush.Unequipped:Connect(function()
+			anim:Stop()
+		end)
+
+		plush.Activated:Connect(function()
+			plush.Toy:Play()
+		end)
+
+	end    
+})
+
+Tab:AddButton({
+	Name = "Door",
+	Callback = function()
+	local plr = game.Players.LocalPlayer
+		local hum = plr.Character:WaitForChild("Humanoid")
+		local plush = game:GetObjects("rbxassetid://133913591697836")[1]
+		plush.Parent = plr.Backpack
+		local anim = hum:LoadAnimation(plush.A.Hold)
+
+		plush.Equipped:Connect(function()
+			anim:Play()
+		end)
+		plush.Unequipped:Connect(function()
+			anim:Stop()
+		end)
+
+		plush.Activated:Connect(function()
+			plush.Toy:Play()
+		end)
+
+	end    
+})
+
+
+
+local Section = Tab:AddSection({
+	Name = "Plushies"
+})
+
+
+Tab:AddButton({
+	Name = "Ambush Plush",
+	Callback = function()
+	local plr = game.Players.LocalPlayer
+		local hum = plr.Character:WaitForChild("Humanoid")
+	local plush = game:GetObjects("rbxassetid://71987918381147")[1]
 		plush.Parent = plr.Backpack
 		local anim = hum:LoadAnimation(plush.A.Hold)
 
@@ -6836,6 +6889,80 @@ Tab:AddButton({
 
 
 
+
+
+Tab:AddButton({
+	Name = "Screech Plush",
+	Callback = function()
+	local plr = game.Players.LocalPlayer
+		local hum = plr.Character:WaitForChild("Humanoid")
+		local plush = game:GetObjects("rbxassetid://76674867809939")[1]
+		plush.Parent = plr.Backpack
+		local anim = hum:LoadAnimation(plush.A.Hold)
+
+		plush.Equipped:Connect(function()
+			anim:Play()
+		end)
+		plush.Unequipped:Connect(function()
+			anim:Stop()
+		end)
+
+		plush.Activated:Connect(function()
+			plush.Toy:Play()
+		end)
+
+	end    
+})
+
+
+Tab:AddButton({
+	Name = "Giggle Plush",
+	Callback = function()
+	local plr = game.Players.LocalPlayer
+		local hum = plr.Character:WaitForChild("Humanoid")
+		local plush = game:GetObjects("rbxassetid://114602114775268")[1]
+		plush.Parent = plr.Backpack
+		local anim = hum:LoadAnimation(plush.A.Hold)
+
+		plush.Equipped:Connect(function()
+			anim:Play()
+		end)
+		plush.Unequipped:Connect(function()
+			anim:Stop()
+		end)
+
+		plush.Activated:Connect(function()
+			plush.Toy:Play()
+		end)
+
+	end    
+})
+
+Tab:AddButton({
+	Name = "Grumble Plush",
+	Callback = function()
+	local plr = game.Players.LocalPlayer
+		local hum = plr.Character:WaitForChild("Humanoid")
+		local plush = game:GetObjects("rbxassetid://111711541718336")[1]
+		plush.Parent = plr.Backpack
+		local anim = hum:LoadAnimation(plush.A.Hold)
+
+		plush.Equipped:Connect(function()
+			anim:Play()
+		end)
+		plush.Unequipped:Connect(function()
+			anim:Stop()
+		end)
+
+		plush.Activated:Connect(function()
+			plush.Toy:Play()
+		end)
+
+	end    
+})
+
+
+
 Tab:AddButton({
 	Name = "Figure Plush",
 	Callback = function()
@@ -6858,31 +6985,6 @@ Tab:AddButton({
 
 	end    
 })
-
-
-Tab:AddButton({
-	Name = " Action 'Figure'",
-	Callback = function()
-	local plr = game.Players.LocalPlayer
-		local hum = plr.Character:WaitForChild("Humanoid")
-	local plush = game:GetObjects("rbxassetid://121628672556065")[1]
-		plush.Parent = plr.Backpack
-		local anim = hum:LoadAnimation(plush.A.Hold)
-
-		plush.Equipped:Connect(function()
-			anim:Play()
-		end)
-		plush.Unequipped:Connect(function()
-			anim:Stop()
-		end)
-
-		plush.Activated:Connect(function()
-			plush.Toy:Play()
-		end)
-
-	end    
-})
-
 
 
 
@@ -6925,29 +7027,6 @@ Tab:AddButton({
 	end    
 })
 
-
-Tab:AddButton({
-	Name = "Doors Plush",
-	Callback = function()
-	local plr = game.Players.LocalPlayer
-		local hum = plr.Character:WaitForChild("Humanoid")
-		local plush = game:GetObjects("rbxassetid://133913591697836")[1]
-		plush.Parent = plr.Backpack
-		local anim = hum:LoadAnimation(plush.A.Hold)
-
-		plush.Equipped:Connect(function()
-			anim:Play()
-		end)
-		plush.Unequipped:Connect(function()
-			anim:Stop()
-		end)
-
-		plush.Activated:Connect(function()
-			plush.Toy:Play()
-		end)
-
-	end    
-})
 
 
 local Section = Tab:AddSection({
