@@ -6048,8 +6048,19 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
-	Name = "Grumble Spawner (PRESS Q TO SPAWN)",
+	Name = "Grumble Spawner (PRESS Q/H TO SPAWN)",
 	Callback = function()
+
+local UserInputService = game:GetService("UserInputService")
+
+UserInputService.InputBegan:Connect(function(input, gP)
+if input.KeyCode == Enum.KeyCode.H and not gP then
+	local files = game.Workspace:WaitForChild("Plushies")
+		files:ClearAllChildren()
+	end
+end)
+
+
 		-- GRUMBLE SPAWNER 
 		--Q TO SPAWN
 
