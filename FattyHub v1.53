@@ -6708,12 +6708,12 @@ Tab:AddButton({
 
 
 Tab:AddButton({
-	Name = "Gold iPad",
-	Callback = function()
-		_G.scanner_fps = 120
-		_G.disable_static = false
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Matthew201322/Doors-Scriptee/refs/heads/main/grass%20tablet.lua"))()
-	end    
+    Name = "Gold iPad",
+    Callback = function()
+        _G.scanner_fps = 120
+        _G.disable_static = false
+        loadstring(game:HttpGet("https://pastebin.com/raw/umRteEPy"))()
+    end
 })
 
 Tab:AddButton({
@@ -6729,7 +6729,9 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "Grass iPad",
 	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/notpoiu/Scripts/refs/heads/main/StarJug.lua"))()
+		_G.scanner_fps = 120
+		_G.disable_static = false
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Matthew201322/Doors-Scriptee/refs/heads/main/grass%20tablet.lua"))()
 	end    
 })
 
