@@ -1,9 +1,13 @@
+
 --MADE BY COKROACHE
 
 
 ------------------------------------------------------------------ GRUMBLE SPAWNER 
 --Q TO SPAWN
 
+
+local folder = Instance.new("Folder")
+folder.Parent = game.workspace
 local Speed = 20
 
 local Players = game:GetService("Players")
@@ -241,8 +245,8 @@ UserInputService.InputBegan:Connect(function(input, gP)
 
 		-------------------------------------------------------------------------------------------------------
 
-		Dummy.Parent = workspace
-		Grumbo.Parent = workspace
+		Dummy.Parent = workspace.Folder
+		Grumbo.Parent = workspace.Folder
 
 		Dummy.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(math.random(-15, 15), 0, math.random(-15, 15))
 
@@ -257,7 +261,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		local Stun = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Stun)
 
 		task.spawn(function()
-			while Grumbo:IsDescendantOf(workspace) do
+			while Grumbo:IsDescendantOf(workspace.Folder) do
 				task.wait(math.random(2, 5))
 				Blink:Play()
 			end
@@ -279,7 +283,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		end)
 
 		RunService.RenderStepped:Connect(function()
-			if Grumbo:IsDescendantOf(workspace) and Dummy:IsDescendantOf(workspace) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
+			if Grumbo:IsDescendantOf(workspace.Folder) and Dummy:IsDescendantOf(workspace.Folder) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
 				local Distance = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).magnitude
 
 				if Distance <= math.huge then
@@ -534,8 +538,8 @@ UserInputService.InputBegan:Connect(function(input, gP)
 
 		-------------------------------------------------------------------------------------------------------
 
-		Dummy.Parent = workspace
-		Grumbo.Parent = workspace
+		Dummy.Parent = workspace.Folder
+		Grumbo.Parent = workspace.Folder
 
 		Dummy.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(math.random(-15, 15), 0, math.random(-15, 15))
 
@@ -550,7 +554,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		local Stun = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Stun)
 
 		task.spawn(function()
-			while Grumbo:IsDescendantOf(workspace) do
+			while Grumbo:IsDescendantOf(workspace.Folder) do
 				task.wait(math.random(2, 5))
 				Blink:Play()
 			end
@@ -572,7 +576,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		end)
 
 		RunService.RenderStepped:Connect(function()
-			if Grumbo:IsDescendantOf(workspace) and Dummy:IsDescendantOf(workspace) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
+			if Grumbo:IsDescendantOf(workspace.Folder) and Dummy:IsDescendantOf(workspace.Folder) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
 				local Distance = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).magnitude
 
 				if Distance <= math.huge then
@@ -816,8 +820,8 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		local Dummy = game:GetObjects("rbxassetid://96223289630255")[1]
 		local Grumbo = game:GetObjects("rbxassetid://127691817511165")[1]
 
-		Dummy.Parent = workspace
-		Grumbo.Parent = workspace
+		Dummy.Parent = workspace.Folder
+		Grumbo.Parent = workspace.Folder
 
 		Dummy.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(math.random(-15, 15), 0, math.random(-15, 15))
 
@@ -832,7 +836,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		local Stun = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Stun)
 
 		task.spawn(function()
-			while Grumbo:IsDescendantOf(workspace) do
+			while Grumbo:IsDescendantOf(workspace.Folder) do
 				task.wait(math.random(2, 5))
 				Blink:Play()
 			end
@@ -854,7 +858,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		end)
 
 		RunService.RenderStepped:Connect(function()
-			if Grumbo:IsDescendantOf(workspace) and Dummy:IsDescendantOf(workspace) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
+			if Grumbo:IsDescendantOf(workspace.Folder) and Dummy:IsDescendantOf(workspace.Folder) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
 				local Distance = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).magnitude
 
 				if Distance <= math.huge then
@@ -1104,8 +1108,8 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		local Dummy = game:GetObjects("rbxassetid://96223289630255")[1]
 		local Grumbo = game:GetObjects("rbxassetid://78597525231917")[1]
 
-		Dummy.Parent = workspace
-		Grumbo.Parent = workspace
+		Dummy.Parent = workspace.Folder
+		Grumbo.Parent = workspace.Folder
 
 		Dummy.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(math.random(-15, 15), 0, math.random(-15, 15))
 
@@ -1120,7 +1124,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		local Stun = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Stun)
 
 		task.spawn(function()
-			while Grumbo:IsDescendantOf(workspace) do
+			while Grumbo:IsDescendantOf(workspace.Folder) do
 				task.wait(math.random(2, 5))
 				Blink:Play()
 			end
@@ -1142,7 +1146,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		end)
 
 		RunService.RenderStepped:Connect(function()
-			if Grumbo:IsDescendantOf(workspace) and Dummy:IsDescendantOf(workspace) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
+			if Grumbo:IsDescendantOf(workspace.Folder) and Dummy:IsDescendantOf(workspace.Folder) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
 				local Distance = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).magnitude
 
 				if Distance <= math.huge then
@@ -1397,8 +1401,8 @@ UserInputService.InputBegan:Connect(function(input, gP)
 
 		-------------------------------------------------------------------------------------------------------
 
-		Dummy.Parent = workspace
-		Grumbo.Parent = workspace
+		Dummy.Parent = workspace.Folder
+		Grumbo.Parent = workspace.Folder
 
 		Dummy.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(math.random(-15, 15), 0, math.random(-15, 15))
 
@@ -1413,7 +1417,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		local Stun = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Stun)
 
 		task.spawn(function()
-			while Grumbo:IsDescendantOf(workspace) do
+			while Grumbo:IsDescendantOf(workspace.Folder) do
 				task.wait(math.random(2, 5))
 				Blink:Play()
 			end
@@ -1435,7 +1439,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		end)
 
 		RunService.RenderStepped:Connect(function()
-			if Grumbo:IsDescendantOf(workspace) and Dummy:IsDescendantOf(workspace) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
+			if Grumbo:IsDescendantOf(workspace.Folder) and Dummy:IsDescendantOf(workspace.Folder) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
 				local Distance = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).magnitude
 
 				if Distance <= math.huge then
@@ -1690,8 +1694,8 @@ UserInputService.InputBegan:Connect(function(input, gP)
 
 		-------------------------------------------------------------------------------------------------------
 
-		Dummy.Parent = workspace
-		Grumbo.Parent = workspace
+		Dummy.Parent = workspace.Folder
+		Grumbo.Parent = workspace.Folder
 
 		Dummy.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(math.random(-15, 15), 0, math.random(-15, 15))
 
@@ -1706,7 +1710,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		local Stun = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Stun)
 
 		task.spawn(function()
-			while Grumbo:IsDescendantOf(workspace) do
+			while Grumbo:IsDescendantOf(workspace.folder.folder) do
 				task.wait(math.random(2, 5))
 				Blink:Play()
 			end
@@ -1728,7 +1732,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		end)
 
 		RunService.RenderStepped:Connect(function()
-			if Grumbo:IsDescendantOf(workspace) and Dummy:IsDescendantOf(workspace) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
+			if Grumbo:IsDescendantOf(workspace.Folder) and Dummy:IsDescendantOf(workspace.Folder) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
 				local Distance = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).magnitude
 
 				if Distance <= math.huge then
@@ -1983,8 +1987,8 @@ UserInputService.InputBegan:Connect(function(input, gP)
 
 		-------------------------------------------------------------------------------------------------------
 
-		Dummy.Parent = workspace
-		Grumbo.Parent = workspace
+		Dummy.Parent = workspace.Folder
+		Grumbo.Parent = workspace.Folder
 
 		Dummy.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(math.random(-15, 15), 0, math.random(-15, 15))
 
@@ -1999,7 +2003,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		local Stun = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Stun)
 
 		task.spawn(function()
-			while Grumbo:IsDescendantOf(workspace) do
+			while Grumbo:IsDescendantOf(workspace.folder.folder) do
 				task.wait(math.random(2, 5))
 				Blink:Play()
 			end
@@ -2021,7 +2025,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 		end)
 
 		RunService.RenderStepped:Connect(function()
-			if Grumbo:IsDescendantOf(workspace) and Dummy:IsDescendantOf(workspace) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
+			if Grumbo:IsDescendantOf(workspace.Folder) and Dummy:IsDescendantOf(workspace.Folder) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
 				local Distance = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).magnitude
 
 				if Distance <= math.huge then
