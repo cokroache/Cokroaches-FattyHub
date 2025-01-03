@@ -2039,9 +2039,12 @@ UserInputService.InputBegan:Connect(function(input, gP)
 	end
 end)
 
+local UserInputService = game:GetService("UserInputService")
 
-if input.KeyCode == Enum.KeyCode.G and not gP then
-local files = game.Workspace:WaitForChild("Plushies")
-files:Destroy()
-end
+UserInputService.InputBegan:Connect(function(input, gP)
+if input.KeyCode == Enum.KeyCode.H and not gP then
+	local files = game.Workspace:WaitForChild("Plushies")
+		files:ClearAllChildren()
+	end
+end)
 
