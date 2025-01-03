@@ -6038,10 +6038,9 @@ Tab:AddButton({
 	Name = "Entity Plushies SpawnerHub",
 	Callback = function()
 
-			local player = game.Players.LocalPlayer.Character.Head
 			local music = Instance.new("Sound")
 			local audio = "http://www.roblox.com/asset/?id=17208361335"
-			music.Parent = player
+			music.Parent = game.Players.LocalPlayer.Character.Head
 			music.SoundId = audio
 			music.Volume = 1
 
