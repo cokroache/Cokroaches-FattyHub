@@ -6366,7 +6366,7 @@ Tab:AddButton({
 	Name = "Screech...",
 	Callback = function()
 while true do 
-wait(3.5)
+wait(0.35)
 	require(game.StarterGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech)(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
 workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
 	end
@@ -6377,7 +6377,7 @@ Tab:AddButton({
 	Name = "Halt...",
 	Callback = function()
 while true do 
-wait(3.5)
+wait(0.35)
 require(game.ReplicatedStorage.ClientModules.EntityModules.Shade).stuff(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
 workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
 	end
