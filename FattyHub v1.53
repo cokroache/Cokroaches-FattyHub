@@ -6053,6 +6053,11 @@ Tab:AddButton({
 
 local UserInputService = game:GetService("UserInputService")
 
+local GrumbosFolder = Instance.new("Folder")
+GrumbosFolder.Parent = workspace
+GrumbosFolder.Name ="GrumbosFolder"
+
+
 UserInputService.InputBegan:Connect(function(input, gP)
 if input.KeyCode == Enum.KeyCode.H and not gP then
 	local files = game.Workspace:WaitForChild("Plushies")
@@ -6291,8 +6296,8 @@ end)
 				local Dummy = game:GetObjects("rbxassetid://96223289630255")[1]
 				local Grumbo = game:GetObjects("rbxassetid://103869039972033")[1]
 
-				Dummy.Parent = workspace
-				Grumbo.Parent = workspace
+				Dummy.Parent = workspace.GrumbosFolder
+				Grumbo.Parent = workspace.GrumbosFolder
 
 				Dummy.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(math.random(-15, 15), 0, math.random(-15, 15))
 
@@ -6307,7 +6312,7 @@ end)
 				local Stun = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Stun)
 
 				task.spawn(function()
-					while Grumbo:IsDescendantOf(workspace) do
+					while Grumbo:IsDescendantOf(workspace.GrumbosFolder) do
 						task.wait(math.random(2, 5))
 						Blink:Play()
 					end
@@ -6329,7 +6334,7 @@ end)
 				end)
 
 				RunService.RenderStepped:Connect(function()
-					if Grumbo:IsDescendantOf(workspace) and Dummy:IsDescendantOf(workspace) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
+					if Grumbo:IsDescendantOf(workspace.GrumbosFolder) and Dummy:IsDescendantOf(workspace.GrumbosFolder) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
 						local Distance = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).magnitude
 
 						if Distance <= math.huge then
