@@ -6060,7 +6060,7 @@ GrumbosFolder.Name ="GrumbosFolder"
 
 UserInputService.InputBegan:Connect(function(input, gP)
 if input.KeyCode == Enum.KeyCode.H and not gP then
-	local files = game.Workspace:WaitForChild("Plushies")
+	local files = game.Workspace:WaitForChild("GrumbosFolder")
 		files:ClearAllChildren()
 	end
 end)
