@@ -40,7 +40,7 @@ randomrooms.Door.Sign.Stinker.Text = "666"
 randomrooms.Door.Sign.Stinker.Highlight.Text = "666"
 randomrooms.Door.Sign.Stinker.Shadow.Text = "666"
 
-
+task.wait(15)
 
 while true do 
 wait(1)
