@@ -17,7 +17,7 @@ local spooky = game.workspace:WaitForChild("Ambience_Hotel3")
 spooky.Volume = 4
 spooky.SoundId = "rbxassetid://2184044761"
 spooky.Playing = true
-Spooky.Looped = true
+spooky.Looped = true
 
 
 local rooms = game.workspace:WaitForChild("CurrentRooms")
@@ -46,7 +46,7 @@ randomrooms.Door.Sign.Stinker.Shadow.Text = "666"
 
 
 ---halt
-wait 15
+
 while true do 
 wait(1)
 require(game.ReplicatedStorage.ClientModules.EntityModules.Shade).stuff(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
