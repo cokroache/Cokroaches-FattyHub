@@ -34,7 +34,8 @@ end
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-------------------timothy
+--[[
+----------------timothy
 while true do
 wait(0.35)
   local a = game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game
@@ -48,4 +49,4 @@ wait(0.35)
 workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
 	end
 
-
+]]
