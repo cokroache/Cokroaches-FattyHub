@@ -21,7 +21,7 @@ randomrooms.Door.Sign.Stinker.Highlight.Text = "666"
 randomrooms.Door.Sign.Stinker.Shadow.Text = "666"
 
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/cokroache/Cokroaches-FattyHub/refs/heads/main/secondpoop"))()
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/cokroache/Cokroaches-FattyHub/refs/heads/main/secondpoop"))()
 
 
 
