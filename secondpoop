@@ -1,4 +1,4 @@
---[[
+
 ----------------timothy
 while true do
 wait(0.35)
@@ -13,4 +13,3 @@ wait(0.35)
 workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
 	end
 
-]]
