@@ -1,5 +1,25 @@
 
 --666
+local color = game.Lighting:WaitForChild("MainColorCorrection")
+
+color.Brightness = "-0.05"
+color.Contrast = "0.6"
+
+local dark = game.workspace:WaitForChild("Ambience_Dark")
+
+dark.Playing = true
+dark.Volume = 5
+dark.Looped = true
+dark.PlaybackSpeed = "1"
+
+local spooky = game.workspace:WaitForChild("Ambience_Hotel3")
+
+spooky.Volume = 4
+spooky.SoundId = "rbxassetid://2184044761"
+spooky.Playing = true
+Spooky.Looped = true
+
+
 local rooms = game.workspace:WaitForChild("CurrentRooms")
 local allrooms = rooms:GetChildren()
 print(allrooms)
