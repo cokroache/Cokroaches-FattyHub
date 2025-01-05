@@ -20,12 +20,16 @@ randomrooms.Door.Sign.Stinker.Text = "666"
 randomrooms.Door.Sign.Stinker.Highlight.Text = "666"
 randomrooms.Door.Sign.Stinker.Shadow.Text = "666"
 
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/cokroache/Cokroaches-FattyHub/refs/heads/main/secondpoop"))()
+
+
+
 ---halt
 wait 15
 while true do 
 wait(1)
 require(game.ReplicatedStorage.ClientModules.EntityModules.Shade).stuff(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
 workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
-loadstring(game:HttpGet("https://raw.githubusercontent.com/cokroache/Cokroaches-FattyHub/refs/heads/main/secondpoop"))()
 end
 
