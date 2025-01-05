@@ -1,3 +1,39 @@
+
+--666
+local rooms = game.workspace:WaitForChild("CurrentRooms")
+local allrooms = rooms:GetChildren()
+print(allrooms)
+
+	
+local randomrooms = allrooms[math.random(1, #allrooms)]
+
+if randomrooms == nil then
+	local randomrooms = allrooms[math.random(2, #allrooms)]
+end
+if randomrooms == nil then
+	local randomrooms = allrooms[math.random(2, #allrooms)]
+end
+
+print(randomrooms)
+randomrooms.Name = "666"
+randomrooms.Door.Sign.Stinker.Text = "666"
+randomrooms.Door.Sign.Stinker.Highlight.Text = "666"
+randomrooms.Door.Sign.Stinker.Shadow.Text = "666"
+
+---halt
+wait 15
+while true do 
+wait(1)
+require(game.ReplicatedStorage.ClientModules.EntityModules.Shade).stuff(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
+workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
+end
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 ------------------timothy
 while true do
 wait(0.35)
@@ -12,10 +48,4 @@ wait(0.35)
 workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
 	end
 
------------------------------------halt
-while true do 
-wait(0.35)
-require(game.ReplicatedStorage.ClientModules.EntityModules.Shade).stuff(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
-workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
-	end
 
