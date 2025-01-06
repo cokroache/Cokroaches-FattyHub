@@ -6,4 +6,4 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/cokroache/Cokroaches-
 
 
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/cokroache/Cokroaches-FattyHub/refs/heads/main/aa"))()
+loadstring(game:HttpGet(https://raw.githubusercontent.com/cokroache/Cokroaches-FattyHub/refs/heads/main/entityspawners"))()
