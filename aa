@@ -1,4 +1,7 @@
 
+
+
+
 --666
 local color = game.Lighting:WaitForChild("MainColorCorrection")
 
@@ -40,6 +43,8 @@ randomrooms.Door.Sign.Stinker.Text = "666"
 randomrooms.Door.Sign.Stinker.Highlight.Text = "666"
 randomrooms.Door.Sign.Stinker.Shadow.Text = "666"
 
+
+print("made it this far")
 task.wait(15)
 
 while true do 
