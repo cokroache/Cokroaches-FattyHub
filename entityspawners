@@ -1,16 +1,30 @@
+local UserInputService = game:GetService("UserInputService")
 
 ----------------timothy
-while true do
-wait(0.35)
-  local a = game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game
+
+UserInputService.InputBegan:Connect(function(input, gP)
+	if input.KeyCode == Enum.KeyCode.C and not gP then
+local a = game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game
 require(a.RemoteListener.Modules.SpiderJumpscare)(require(a), workspace.CurrentRooms["0"].Assets.Dresser.DrawerContainer, 0.2)
 end
+end)
 
---[[
+
+
 ----------------screech
-while true do 
-wait(0.35)
-	require(game.StarterGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech)(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
+
+UserInputService.InputBegan:Connect(function(input, gP)
+	if input.KeyCode == Enum.KeyCode.Z and not gP then
+require(game.StarterGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech)(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
 workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
 	end
-]]
+	end)
+
+
+---------------------halt
+UserInputService.InputBegan:Connect(function(input, gP)
+	if input.KeyCode == Enum.KeyCode.X and not gP then
+require(game.ReplicatedStorage.ClientModules.EntityModules.Shade).stuff(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
+workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
+end
+end)
