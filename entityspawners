@@ -6,8 +6,43 @@ local UserInputService = game:GetService("UserInputService")
 
 UserInputService.InputBegan:Connect(function(input, gP)
 	if input.KeyCode == Enum.KeyCode.C and not gP then
+local function timothy()
 local a = game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game
 require(a.RemoteListener.Modules.SpiderJumpscare)(require(a), workspace.CurrentRooms["0"].Assets.Dresser.DrawerContainer, 0.2)
+end
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+timothy()
+
+
 end
 end)
 
