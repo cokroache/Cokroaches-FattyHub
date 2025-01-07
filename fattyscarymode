@@ -5,5 +5,5 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DripCapybara/Doors-Mo
 loadstring(game:HttpGet("https://raw.githubusercontent.com/cokroache/Cokroaches-FattyHub/refs/heads/main/666"))()
 
 
-
+task.wait(1)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/cokroache/Cokroaches-FattyHub/refs/heads/main/entityspawners"))()
