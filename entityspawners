@@ -204,3 +204,39 @@ color:destroy()
 end
 end)
 ]]
+
+
+
+
+
+
+
+---------------------halt
+UserInputService.InputBegan:Connect(function(input, gP)
+	if input.KeyCode == Enum.KeyCode.N and not gP then
+---====== Load module ======---
+
+local module = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Doors/Crucifix%20Everything/Source.lua"))()
+
+---====== Create crucifix ======---
+
+module.GiveCrucifix({
+    Type = 1,
+    Uses = nil, -- nil : infinite uses
+    Resist = false,
+    EntitiesOnly = false, -- true : custom entities only
+    IgnoreList = {}
+})
+
+--[[
+
+CRUCIFIX TYPES:
+-> 1: Guiding Light
+
+
+COMING SOON:
+-> Curious Light crucifix type
+
+]]--
+end
+end)
