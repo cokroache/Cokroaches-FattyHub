@@ -97,7 +97,7 @@ local entity = spawner.Create({
 	},
 	CameraShake = {
 		Enabled = true,
-		Range = 1000,
+		Range = 5,
 		Values = {10, 10, 12, 10} -- Magnitude, Roughness, FadeIn, FadeOut
 	},
 	Movement = {
@@ -108,8 +108,8 @@ local entity = spawner.Create({
 	Rebounding = {
 		Enabled = true,
 		Type = "Ambush", -- "Blitz"
-		Min = 1,
-		Max = 1,
+		Min = 3,
+		Max = 5,
 		Delay = 2
 	},
 	Damage = {
@@ -124,9 +124,9 @@ local entity = spawner.Create({
 		Break = true
 	},
 	Death = {
-		Type = "Guiding", -- "Curious"
-		Hints = {"Death", "Hints", "Go", "Here"},
-		Cause = ""
+		Type = "Curious", -- "Curious"
+		Hints = {"Congrats Fatty, you found the secrets of seed 666..", "Now ima have to jiggle dem balls 😈"},
+		Cause = "Fatty"
 	}
 })
 
@@ -195,7 +195,7 @@ end)
 
 entity:Run()
 end
-end
+end)
 
 --[[UserInputService.InputBegan:Connect(function(input, gP)
 	if input.KeyCode == Enum.KeyCode.V and not gP then
