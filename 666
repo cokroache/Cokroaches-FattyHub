@@ -28,13 +28,13 @@ local allrooms = rooms:GetChildren()
 print(allrooms)
 
 
-local randomrooms = allrooms[math.random(#rooms, 100)]
+local randomrooms = allrooms[math.random(1, #allrooms)]
 
 if randomrooms == nil then
-	local randomrooms = allrooms[math.random(#rooms, 100)]
+	local randomrooms = allrooms[math.random(1, #allrooms)]
 end
 if randomrooms == nil then
-	local randomrooms = allrooms[math.random(#rooms,100)]
+	local randomrooms = allrooms[math.random(1, #allrooms)]
 end
 
 print(randomrooms)
