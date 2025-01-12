@@ -7443,6 +7443,16 @@ Tab:AddButton({
 	end    
 })
 
+Tab:AddButton({
+	Name = "Seek Plushie at Seek Chase",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/cokroache/Cokroaches-FattyHub/refs/heads/main/seekplushatchase"))()
+	end    
+})
+
+
+
+
 
 Tab:AddButton({
 	Name = "Immortal Snail",
@@ -7450,6 +7460,67 @@ Tab:AddButton({
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Game/Immortal%20Snail.lua"))()
 	end
 
+})
+
+
+
+Tab:AddButton({
+	Name = "ElGoblino Plush at Door 52",
+	Callback = function()
+		local Players = game:GetService("Players")
+		local Equipped = false
+		local Plr = Players.LocalPlayer
+		local Char = Plr.Character or Plr.CharacterAdded:Wait()
+		local Hum = Char:WaitForChild("Humanoid")
+		local Root = Char:WaitForChild("HumanoidRootPart")
+		local RightArm = Char:WaitForChild("RightUpperArm")
+		local LeftArm = Char:WaitForChild("LeftUpperArm")
+		local RightC1 = RightArm.RightShoulder.C1
+		local LeftC1 = LeftArm.LeftShoulder.C1
+		local CustomShop = loadstring(game:HttpGet("https://raw.githubusercontent.com/MateiDaBest/Utilities/main/Doors/Custom%20Shop%20Items/Main.lua"))()
+		local Goblino = game:GetObjects("rbxassetid://12856605563")[1]
+
+		Goblino.Parent = game.Players.LocalPlayer.Backpack
+
+		CustomShop.CreateItem({
+			Title = "El Goblino",
+			Desc = "Door 52",
+			Image = "https://cdn.discordapp.com/attachments/970078853127110677/1087774910706888824/12372522258.png",
+			Price = 52,
+			Stack = 1,
+		})
+
+		local function setupHands(tool)
+			tool.Equipped:Connect(function()
+				Equipped = true
+				Char:SetAttribute("Hiding", true)
+				for _, v in next, Hum:GetPlayingAnimationTracks() do
+					v:Stop()
+				end
+
+				RightArm.Name = "R_Arm"
+				LeftArm.Name = "L_Arm"
+
+				RightArm.RightShoulder.C1 = RightC1
+					* CFrame.Angles(math.rad(-90), math.rad(-10), 0)
+				LeftArm.LeftShoulder.C1 = LeftC1
+					* CFrame.new(-0.2, -0.4, -0.5)
+					* CFrame.Angles(math.rad(-110), math.rad(30), math.rad(0))	
+			end)
+
+			tool.Unequipped:Connect(function()
+				Equipped = false
+				Char:SetAttribute("Hiding", nil)
+				RightArm.Name = "RightUpperArm"
+				LeftArm.Name = "LeftUpperArm"
+
+				RightArm.RightShoulder.C1 = RightC1
+				LeftArm.LeftShoulder.C1 = LeftC1
+			end)
+		end
+
+		setupHands(Goblino)
+	end    
 })
 
 
@@ -7599,10 +7670,126 @@ Tab:AddButton({
 })
 
 
+Tab:AddButton({
+	Name = "Kiwi Morphs",
+	Callback = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/s21b8TkT", true))()
+	end    
+})
+
+
+Tab:AddButton({
+	Name = "Screech Morph",
+	Callback = function()
+		local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
+		local UserInputService = game:GetService("UserInputService")
+		local Screech = game:GetObjects("rbxassetid://12488126270")[1]
+		local Character = game.Players.LocalPlayer.Character
+		local Locked = true
+
+		local CaughtImport = "https://cdn.discordapp.com/attachments/1066050482075861083/1075134905220091986/Caught.mp3"
+		local AttackImport = "https://cdn.discordapp.com/attachments/1066050482075861083/1075134905530462270/Attack.mp3"
+		local PsstImport = "https://cdn.discordapp.com/attachments/1066050482075861083/1075134904867762196/Psst.mp3"
+
+		for i,v in pairs(Character:GetDescendants()) do
+			if v:IsA("BasePart") or v:IsA("Decal") then
+				v.Transparency = 1
+			end
+		end
+
+		Screech.Parent = workspace
+
+		for i,v in pairs(Screech:GetDescendants()) do
+			if v:IsA("BasePart") then
+				v.Anchored = false
+			end
+		end
+
+		UserInputService.InputBegan:Connect(function(input)
+			if input.KeyCode == Enum.KeyCode.R then
+				local Attack = Screech:FindFirstChildOfClass("AnimationController"):LoadAnimation(Screech.Animations.Attack)
+				AttackS:Play()
+				Attack:Play()
+			elseif input.KeyCode == Enum.KeyCode.T then
+				local Caught = Screech:FindFirstChildOfClass("AnimationController"):LoadAnimation(Screech.Animations.Caught)
+				CaughtS:Play()
+				Caught:Play()
+			elseif input.KeyCode == Enum.KeyCode.Y then
+				PsstS:Play()
+			end
+		end)
+	end    
+})
+
+
 
 
 local Section = Tab:AddSection({
 	Name = "Behavior Packs"
+})
+
+
+Tab:AddButton({
+	Name = "Random Material (ANY GAME)",
+	Callback = function()
+		_G.DEBUG_LAVA = false
+		local materials = {
+			Enum.Material.Plastic,
+			Enum.Material.SmoothPlastic,
+			Enum.Material.Wood,
+			Enum.Material.Slate,
+			Enum.Material.Concrete,
+			Enum.Material.CorrodedMetal,
+			Enum.Material.DiamondPlate,
+			Enum.Material.Foil,
+			Enum.Material.Grass,
+			Enum.Material.Ice,
+			Enum.Material.Marble,
+			Enum.Material.Granite,
+			Enum.Material.Brick,
+			Enum.Material.Pebble,
+			Enum.Material.Sand,
+			Enum.Material.Fabric,
+			Enum.Material.Metal,
+			Enum.Material.WoodPlanks,
+			Enum.Material.Neon,
+			Enum.Material.Cobblestone,
+			Enum.Material.CrackedLava,
+			Enum.Material.Glass,
+			Enum.Material.Snow,
+			Enum.Material.Asphalt,
+			Enum.Material.Basalt,
+			Enum.Material.Pavement,
+			Enum.Material.DiamondPlate,
+			Enum.Material.Sandstone,
+			Enum.Material.Limestone,
+			Enum.Material.LeafyGrass,
+			Enum.Material.Mud,
+			Enum.Material.Rock,
+			Enum.Material.Salt,
+		}
+
+		local function changePartMaterial(part)
+			local randomMaterial = materials[math.random(1, #materials)]
+			part.Material = randomMaterial
+		end
+
+		local function changeMaterials()
+			for _, part in ipairs(workspace:GetDescendants()) do
+				if part:IsA("BasePart") then
+					changePartMaterial(part)
+				end
+			end
+		end
+
+		changeMaterials()
+
+		while true do
+			wait(5)
+			changeMaterials()
+		end
+	end
+
 })
 
 
@@ -7713,6 +7900,16 @@ Tab:AddButton({
 	end
 
 })
+
+
+Tab:AddButton({
+	Name = "Goofy Entities",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Game/Immortal%20Snail.lua"))()
+	end
+
+})
+
 
 
 
@@ -8021,7 +8218,7 @@ Tab:AddButton({
 	Callback = function()
 		_G.scanner_fps = 120
 		_G.disable_static = false
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Agadigas/Doors/refs/heads/main/Glitched%20Scanner%20by%20Custom%20Doors"))()
+		loadstring(Game:HttpGet("https://raw.githubusercontent.com/yieviro92creepy/WeirdPinktablet/main/sigma"))()
 	end    
 })
 
@@ -8108,6 +8305,116 @@ Tab:AddButton({
 })
 
 
+Tab:AddButton({
+	Name = "Subspace Tripmine",
+	Callback = function()
+
+		local Players = game:GetService("Players")
+		local Equipped = false
+		local Plr = Players.LocalPlayer
+		local Char = Plr.Character or Plr.CharacterAdded:Wait()
+		local Hum = Char:WaitForChild("Humanoid")
+		local Root = Char:WaitForChild("HumanoidRootPart")
+		local RightArm = Char:WaitForChild("RightUpperArm")
+		local LeftArm = Char:WaitForChild("LeftUpperArm")
+		local RightC1 = RightArm.RightShoulder.C1
+		local LeftC1 = LeftArm.LeftShoulder.C1
+
+		local tool = Instance.new("Tool")
+		tool.TextureId = "http://www.roblox.com/asset/?id=11987521"
+		tool.Name = "SubspaceTripmine"
+		tool.Parent = game.Players.LocalPlayer:WaitForChild("Backpack")
+
+		local part = Instance.new("Part")
+		part.Name = "Handle"
+		part.Size = Vector3.new(2, 2, 2)
+		part.Parent = tool
+
+		local mesh = Instance.new("SpecialMesh")
+		mesh.MeshId = "http://www.roblox.com/asset/?id=11954776"
+		mesh.TextureId = "http://www.roblox.com/asset/?id=11954766"
+		mesh.Scale = Vector3.new(0.5, 0.5, 0.5)
+		mesh.Parent = part
+
+		local function setupHands(tool)
+			tool.Equipped:Connect(function()
+				Equipped = true
+				Char:SetAttribute("Hiding", true)
+				for _, v in next, Hum:GetPlayingAnimationTracks() do
+					v:Stop()
+				end
+
+				RightArm.Name = "R_Arm"
+				LeftArm.Name = "L_Arm"
+
+				RightArm.RightShoulder.C1 = RightC1
+					* CFrame.Angles(math.rad(-90), math.rad(-10), 0)
+				LeftArm.LeftShoulder.C1 = LeftC1
+					* CFrame.new(-0.2, -0.2, -0.5)
+					* CFrame.Angles(math.rad(-110), math.rad(15), math.rad(0))	
+			end)
+
+			tool.Unequipped:Connect(function()
+				Equipped = false
+				Char:SetAttribute("Hiding", nil)
+				RightArm.Name = "RightUpperArm"
+				LeftArm.Name = "LeftUpperArm"
+
+				RightArm.RightShoulder.C1 = RightC1
+				LeftArm.LeftShoulder.C1 = LeftC1
+			end)
+
+			tool.Activated:Connect(function()
+				local pos = Plr:GetMouse().Hit
+				local stclone = part:Clone()
+				stclone.Parent = workspace
+				stclone.Position = Plr.Character.RightHand.Position
+				local bv = Instance.new("BodyVelocity",stclone)
+				bv.Velocity = pos.LookVector * 50
+				stclone.CanCollide = true
+				task.wait(0.2)
+				bv:Destroy()
+				local beforeexplodesound = Instance.new("Sound")
+				beforeexplodesound.SoundId = "rbxassetid://11956590"
+				beforeexplodesound.Volume = 2
+				beforeexplodesound.Parent = stclone
+				beforeexplodesound:Play()
+				beforeexplodesound.Ended:wait()
+				local explodesound = Instance.new("Sound")
+				explodesound.SoundId = "rbxassetid://11984351"
+				explodesound.Volume = 2
+				explodesound.Parent = stclone
+				explodesound:Play()
+				local nearbyParts = workspace:GetPartBoundsInBox(stclone.CFrame,Vector3.new(30,30,30))
+				local forcetable = {}
+				for _, part in ipairs(nearbyParts) do
+					local check = false
+					local partname = part.name
+					if string.find(partname,"Wall") or string.find(partname,"Floor") then
+						check = true
+					end
+					if check == false then
+						part.Anchored = false
+						local distance = (part.Position - stclone.Position).Magnitude
+						local force = (15 - distance) * 100
+						local bodyforce = Instance.new("BodyVelocity",part)
+						bodyforce.Velocity = (force * (part.Position - stclone.Position).Unit)
+						table.insert(forcetable,bodyforce)
+						part.CFrame = part.CFrame * CFrame.new(math.random(1,5),0,math.random(1,5))
+					end
+				end
+				wait(0.1)
+				for i,aforce in ipairs(forcetable) do
+					aforce:Destroy()
+				end
+				explodesound.Ended:Wait()
+				stclone:Destroy()
+			end)
+		end
+
+		setupHands(tool)
+	end    
+})
 
 
 local Section = Tab:AddSection({
@@ -8409,6 +8716,7 @@ Tab:AddButton({
 
 
 
+
 local Section = Tab:AddSection({
 	Name = "ShakeLights"
 })
@@ -8440,6 +8748,59 @@ Tab:AddButton({
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Matthew201322/Doors-Scriptee/refs/heads/main/Shakelight.luau", true))()
 	end    
 })
+
+
+local Section = Tab:AddSection({
+	Name = "Items"
+})
+Tab:AddButton({
+	Name = "Vitamins",
+	Callback = function()
+		getgenv().CustomVitamins = {
+			SpeedBoost = 7,
+			EffectDuration = 7.5
+		}
+
+		local tool = game:GetObjects("rbxassetid://12827538877")[1]
+		tool.Parent = game.Players.LocalPlayer.Backpack
+
+		local anim = Instance.new("Animation")
+		anim.Name = "idle"
+		anim.AnimationId = "rbxassetid://10479585177"
+		local idle = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(anim)
+
+		local anim = Instance.new("Animation")
+		anim.Name = "open"
+		anim.AnimationId = "rbxassetid://10482563149"
+		local use = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(anim)
+
+		tool.Equipped:Connect(function()
+			idle:Play()
+		end)
+
+		tool.Unequipped:Connect(function()
+			idle:Stop()
+		end)
+
+		local using = false
+		tool.Activated:Connect(function()
+			if using == false then
+				using = true
+				use:Play()
+				tool.Handle.sound_open:Play()
+				task.wait(0.5)
+				using = false
+				tool:Destroy()
+				use:Stop()
+				local OldSpeedBoost = game.Players.LocalPlayer.Character.Humanoid:GetAttribute("SpeedBoost")
+				game.Players.LocalPlayer.Character.Humanoid:SetAttribute("SpeedBoost", getgenv().CustomVitamins.SpeedBoost + OldSpeedBoost)
+				task.wait(getgenv().CustomVitamins.EffectDuration)
+				game.Players.LocalPlayer.Character.Humanoid:SetAttribute("SpeedBoost", OldSpeedBoost)
+			end
+		end)
+	end    
+})
+
 
 local Section = Tab:AddSection({
 	Name = "Custom Items"
@@ -8621,6 +8982,18 @@ Tab:AddButton({
 	Name = "Magnet",
 	Callback = function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/MrNeRD0/Doors-Hack/main/MagnetByNerd.lua", true))()
+	end    
+})
+
+
+Tab:AddButton({
+	Name = "PaintBall Gun",
+	Callback = function()
+		---paintball
+		_G.Hold = true -- Set to false to click to paint / Set to true to shoot paint balls
+		_G.ClassicColours = true -- Set to false to get customized coloured paint balls / Set to true to get the classic coloured paint balls
+		_G.Size = Vector3.new(0.5, 0.5, 0.5) -- The higher the bigger, The lower the smaller
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/iimateiYT/Scripts/main/Paintball%20Gun.lua"))()
 	end    
 })
 
