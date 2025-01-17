@@ -36,7 +36,7 @@ OrionLib:MakeNotification({
 
 
 
-local Window = OrionLib:MakeWindow({Name = "Cokroache's Fatty Hub V1.534", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "Cokroache's Fatty Hub V1.54", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 
 
@@ -6242,7 +6242,7 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "Grace Entities",
 	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/IdkMyNameLoll/PublicScripts/refs/heads/main/GraceEntitiesScript"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/IdkMyNameLoll/PublicScripts/refs/heads/main/GraceEntitiesScript"))()
 
 	end
 
@@ -6553,8 +6553,10 @@ Tab:AddButton({
 	end    
 })
 
-Tab:AddButton({
+Tab:AddBind({
 	Name = "Rush",
+	Default = Enum.KeyCode.R,
+	Hold = false,
 	Callback = function()
 		---====== Load spawner ======---
 
@@ -6683,8 +6685,10 @@ end)
 
 
 
-Tab:AddButton({
+Tab:AddBind({
 	Name = "Rush (Die-able)",
+	Default = Enum.KeyCode.T,
+	Hold = false,
 	Callback = function()
 		---====== Load spawner ======---
 
@@ -6812,8 +6816,10 @@ end)
 })
 
 
-Tab:AddButton({
+Tab:AddBind({
 	Name = "Blitz",
+	Default = Enum.KeyCode.Y,
+	Hold = false,
 	Callback = function()
 		---====== Load spawner ======---
 
@@ -6919,8 +6925,10 @@ Tab:AddButton({
 
 
 
-Tab:AddButton({
+Tab:AddBind({
 	Name = "Blitz (deading)",
+	Default = Enum.KeyCode.U,
+	Hold = false,
 	Callback = function()
 		---====== Load spawner ======---
 
@@ -7026,8 +7034,10 @@ Tab:AddButton({
 
 
 
-Tab:AddButton({
+Tab:AddBind({
 	Name = "Ambush",
+	Default = Enum.KeyCode.I,
+	Hold = false,
 	Callback = function()
 		---====== Load spawner ======---
 
@@ -7055,7 +7065,7 @@ Tab:AddButton({
 			CameraShake = {
 				Enabled = true,
 				Range = 100,
-				Values = {20, 20, 20, 20} -- Magnitude, Roughness, FadeIn, FadeOut
+				Values = {2, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
 			},
 			Movement = {
 				Speed = 200,
@@ -7157,8 +7167,10 @@ end)
 
 
 
-Tab:AddButton({
+Tab:AddBind({
 	Name = "Ambush (Die)",
+	Default = Enum.KeyCode.O,
+	Hold = false,
 	Callback = function()
 		---====== Load spawner ======---
 
@@ -7289,7 +7301,7 @@ end)
 Tab:AddButton({
 	Name = "Pandemonium",
 	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAccelerator/Public-Scripts/main/Morphing/MorphScript.lua"))();
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/DripCapybara/Doors-Mode-Remakes/refs/heads/main/PandemoniumProtected.lua"))()
 	end    
 })
 
