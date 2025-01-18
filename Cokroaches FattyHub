@@ -10434,7 +10434,7 @@ Tab:AddButton({
 	Name = "Astral Hub",
 	Callback = function()
 
-		script_key="xjdADQbagbVeYYjFmbufATIxoXWteCCQ";
+		script_key="ANdSMdMpZgKEFGUkQvPenPYinQAfoupH";
 		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/955852b1ca77ce8454cc37e91c40bc33.lua"))()
 	end    
 })
