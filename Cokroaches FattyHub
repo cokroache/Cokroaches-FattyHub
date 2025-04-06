@@ -24,7 +24,7 @@ end
 
 local player = game.Players.LocalPlayer
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
 
 OrionLib:MakeNotification({
 	Name = "Cokroache's Fatty Hub!",
