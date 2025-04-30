@@ -2042,9 +2042,213 @@ end)
 local UserInputService = game:GetService("UserInputService")
 
 UserInputService.InputBegan:Connect(function(input, gP)
-if input.KeyCode == Enum.KeyCode.H and not gP then
-	local files = game.Workspace:WaitForChild("Plushies")
+	if input.KeyCode == Enum.KeyCode.H and not gP then
+		local files = game.Workspace:WaitForChild("Plushies")
 		files:ClearAllChildren()
 	end
 end)
 
+
+----------------------------------------------------------------------------------DEAD RAILS
+--HORSE
+UserInputService.InputBegan:Connect(function(input, gP)
+	if input.KeyCode == Enum.KeyCode.One and not gP then
+		local Dummy = game:GetObjects("rbxassetid://96223289630255")[1]
+
+
+		--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+		local Grumbo = game:GetObjects("rbxassetid://86974107726067")[1]
+
+		-------------------------------------------------------------------------------------------------------
+
+		Dummy.Parent = workspace.Plushies
+		Grumbo.Parent = workspace.Plushies
+
+		Dummy.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(math.random(-15, 15), 0, math.random(-15, 15))
+
+		task.wait()
+
+		local Idle = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Idle)
+		Idle.Looped = true
+		Idle:Play()
+
+		local Blink = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Blink)
+
+		local Stun = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Stun)
+
+		task.spawn(function()
+			while Grumbo:IsDescendantOf(workspace.Plushies) do
+				task.wait(math.random(2, 5))
+				Blink:Play()
+			end
+		end)
+
+		local function followPlayer()
+			local Direction = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).unit
+			Dummy.HumanoidRootPart.Velocity = Direction * Speed
+			Dummy.HumanoidRootPart.CFrame = CFrame.new(Dummy.HumanoidRootPart.Position, Character.HumanoidRootPart.Position)
+		end
+
+		Dummy.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+			if Dummy.Humanoid.Health <= 0 then
+				Stun:Play()
+				task.wait(0.3)
+				Dummy:Destroy()
+				Grumbo:Destroy()
+			end
+		end)
+
+		RunService.RenderStepped:Connect(function()
+			if Grumbo:IsDescendantOf(workspace.Plushies) and Dummy:IsDescendantOf(workspace.Plushies) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
+				local Distance = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).magnitude
+
+				if Distance <= math.huge then
+					followPlayer()
+				end
+
+				Grumbo:PivotTo(Dummy.HumanoidRootPart.CFrame)
+			end
+		end)
+	end
+end)
+
+----------------------------------------------------------------------------------DEAD RAILS
+--Fredrick
+UserInputService.InputBegan:Connect(function(input, gP)
+	if input.KeyCode == Enum.KeyCode.One and not gP then
+		local Dummy = game:GetObjects("rbxassetid://96223289630255")[1]
+
+
+		--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+		local Grumbo = game:GetObjects("rbxassetid://75487462780027")[1]
+
+		-------------------------------------------------------------------------------------------------------
+
+		Dummy.Parent = workspace.Plushies
+		Grumbo.Parent = workspace.Plushies
+
+		Dummy.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(math.random(-15, 15), 0, math.random(-15, 15))
+
+		task.wait()
+
+		local Idle = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Idle)
+		Idle.Looped = true
+		Idle:Play()
+
+		local Blink = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Blink)
+
+		local Stun = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Stun)
+
+		task.spawn(function()
+			while Grumbo:IsDescendantOf(workspace.Plushies) do
+				task.wait(math.random(2, 5))
+				Blink:Play()
+			end
+		end)
+
+		local function followPlayer()
+			local Direction = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).unit
+			Dummy.HumanoidRootPart.Velocity = Direction * Speed
+			Dummy.HumanoidRootPart.CFrame = CFrame.new(Dummy.HumanoidRootPart.Position, Character.HumanoidRootPart.Position)
+		end
+
+		Dummy.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+			if Dummy.Humanoid.Health <= 0 then
+				Stun:Play()
+				task.wait(0.3)
+				Dummy:Destroy()
+				Grumbo:Destroy()
+			end
+		end)
+
+		RunService.RenderStepped:Connect(function()
+			if Grumbo:IsDescendantOf(workspace.Plushies) and Dummy:IsDescendantOf(workspace.Plushies) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
+				local Distance = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).magnitude
+
+				if Distance <= math.huge then
+					followPlayer()
+				end
+
+				Grumbo:PivotTo(Dummy.HumanoidRootPart.CFrame)
+			end
+		end)
+	end
+end)
+
+----------------------------------------------------------------------------------DEAD RAILS
+--alpha
+UserInputService.InputBegan:Connect(function(input, gP)
+	if input.KeyCode == Enum.KeyCode.One and not gP then
+		local Dummy = game:GetObjects("rbxassetid://96223289630255")[1]
+
+
+		--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+		local Grumbo = game:GetObjects("rbxassetid://77608999127614")[1]
+
+		-------------------------------------------------------------------------------------------------------
+
+		Dummy.Parent = workspace.Plushies
+		Grumbo.Parent = workspace.Plushies
+
+		Dummy.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(math.random(-15, 15), 0, math.random(-15, 15))
+
+		task.wait()
+
+		local Idle = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Idle)
+		Idle.Looped = true
+		Idle:Play()
+
+		local Blink = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Blink)
+
+		local Stun = Grumbo.GrumbleRig.AnimationController.Animator:LoadAnimation(Grumbo.GrumbleRig.Stun)
+
+		task.spawn(function()
+			while Grumbo:IsDescendantOf(workspace.Plushies) do
+				task.wait(math.random(2, 5))
+				Blink:Play()
+			end
+		end)
+
+		local function followPlayer()
+			local Direction = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).unit
+			Dummy.HumanoidRootPart.Velocity = Direction * Speed
+			Dummy.HumanoidRootPart.CFrame = CFrame.new(Dummy.HumanoidRootPart.Position, Character.HumanoidRootPart.Position)
+		end
+
+		Dummy.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+			if Dummy.Humanoid.Health <= 0 then
+				Stun:Play()
+				task.wait(0.3)
+				Dummy:Destroy()
+				Grumbo:Destroy()
+			end
+		end)
+
+		RunService.RenderStepped:Connect(function()
+			if Grumbo:IsDescendantOf(workspace.Plushies) and Dummy:IsDescendantOf(workspace.Plushies) and Dummy:FindFirstChild("HumanoidRootPart") and Dummy:FindFirstChild("Humanoid").Health > 0 then
+				local Distance = (Character.HumanoidRootPart.Position - Dummy.HumanoidRootPart.Position).magnitude
+
+				if Distance <= math.huge then
+					followPlayer()
+				end
+
+				Grumbo:PivotTo(Dummy.HumanoidRootPart.CFrame)
+			end
+		end)
+	end
+end)
