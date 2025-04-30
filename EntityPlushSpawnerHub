@@ -2285,7 +2285,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 
 
 
-		local Grumbo = game:GetObjects("rbxassetid://86974107726067")[1]
+		local Grumbo = game:GetObjects("rbxassetid://120376579351814")[1]
 
 		-------------------------------------------------------------------------------------------------------
 
@@ -2584,7 +2584,7 @@ UserInputService.InputBegan:Connect(function(input, gP)
 
 
 
-		local Grumbo = game:GetObjects("rbxassetid://75487462780027")[1]
+		local Grumbo = game:GetObjects("rbxassetid://123015376020098")[1]
 
 		-------------------------------------------------------------------------------------------------------
 
