@@ -2052,7 +2052,7 @@ end)
 ----------------------------------------------------------------------------------DEAD RAILS
 --HORSE
 UserInputService.InputBegan:Connect(function(input, gP)
-	if input.KeyCode == Enum.KeyCode.One and not gP then
+	if input.KeyCode == Enum.KeyCode.Four and not gP then
 		local Dummy = game:GetObjects("rbxassetid://96223289630255")[1]
 
 
@@ -2120,7 +2120,7 @@ end)
 ----------------------------------------------------------------------------------DEAD RAILS
 --Fredrick
 UserInputService.InputBegan:Connect(function(input, gP)
-	if input.KeyCode == Enum.KeyCode.One and not gP then
+	if input.KeyCode == Enum.KeyCode.Five and not gP then
 		local Dummy = game:GetObjects("rbxassetid://96223289630255")[1]
 
 
@@ -2188,7 +2188,7 @@ end)
 ----------------------------------------------------------------------------------DEAD RAILS
 --alpha
 UserInputService.InputBegan:Connect(function(input, gP)
-	if input.KeyCode == Enum.KeyCode.One and not gP then
+	if input.KeyCode == Enum.KeyCode.Six and not gP then
 		local Dummy = game:GetObjects("rbxassetid://96223289630255")[1]
 
 
