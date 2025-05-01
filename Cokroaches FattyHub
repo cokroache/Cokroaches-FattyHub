@@ -10243,7 +10243,7 @@ Tab:AddParagraph("Fast Key System","ONLY WORKS FOR DEVELOPERS!")
 
 
 local Section = Tab:AddSection({
-	Name = "Aggo_90"
+	Name = "Hardin"
 })
 
 
@@ -10263,8 +10263,8 @@ Tab:AddButton({
 	Name = "Astral Hub",
 	Callback = function()
 
-		script_key="ANdSMdMpZgKEFGUkQvPenPYinQAfoupH";
-		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/955852b1ca77ce8454cc37e91c40bc33.lua"))()
+		script_key="sslgsSjPJGkughNHxsojUIeULILzNVhS";
+		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/002c19202c9946e6047b0c6e0ad51f84.lua"))()
 	end    
 })
 
