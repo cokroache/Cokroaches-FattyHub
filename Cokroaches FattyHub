@@ -10252,8 +10252,8 @@ Tab:AddButton({
 	Name = "Ms Paint",
 	Callback = function()
 
-		script_key="bpAwWJdBeVJGlTcVYHrUpxqYgLIXvYjn";
-		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/002c19202c9946e6047b0c6e0ad51f84.lua"))()
+		script_key="sslgsSjPJGkughNHxsojUIeULILzNVhS";
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/002c19202c9946e6047b0c6e0ad51f84.lua"))()
 	end    
 })
 
@@ -10263,8 +10263,8 @@ Tab:AddButton({
 	Name = "Astral Hub",
 	Callback = function()
 
-		script_key="sslgsSjPJGkughNHxsojUIeULILzNVhS";
-		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/002c19202c9946e6047b0c6e0ad51f84.lua"))()
+		script_key="0";
+		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/955852b1ca77ce8454cc37e91c40bc33.lua"))()
 	end    
 })
 
