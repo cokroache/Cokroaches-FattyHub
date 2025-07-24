@@ -28,7 +28,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jen
 
 OrionLib:MakeNotification({
 	Name = "Cokroache's Fatty Hub!",
-	Content = "For the big fatties around the globe",
+	Content = "For the biggest fatties around the globe",
 	Image = "rbxassetid://107642772703957",
 	Time = 5
 })
@@ -36,7 +36,7 @@ OrionLib:MakeNotification({
 
 
 
-local Window = OrionLib:MakeWindow({Name = "Cokroache's Fatty Hub V1.58", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "Cokroache's Fatty Hub V1.59", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 
 
@@ -10226,6 +10226,120 @@ Tab:AddButton({
 
 
 local Tab = Window:MakeTab({
+	Name = "Debugs",
+	Icon = "rbxassetid://107642772703957",
+	PremiumOnly = false
+})
+
+
+Tab:AddParagraph("Debbugging","Emulator Debugs")
+
+Tab:AddButton({
+	Name = "MumuPlayer Movement Debug",
+	Callback = function()
+		local Players = game:GetService("Players")
+		local UserInputService = game:GetService("UserInputService")
+		local RunService = game:GetService("RunService")
+		local StarterPlayer = game:GetService("StarterPlayer")
+
+		local player = Players.LocalPlayer
+		local playerGui = player:WaitForChild("PlayerGui")
+
+		local humanoid
+		local rootPart
+
+
+		local keysDown = {
+			W = false,
+			A = false,
+			S = false,
+			D = false,
+		}
+
+
+		local function removeTouchControls()
+			local touchGui = playerGui:FindFirstChild("TouchGui")
+			touchGui:Destroy() 
+		end
+
+		removeTouchControls()
+		playerGui.ChildAdded:Connect(function(child)
+			if child.Name == "TouchGui" then
+				removeTouchControls()
+			end
+		end)
+
+		
+		if UserInputService.TouchEnabled then
+			pcall(function()
+				UserInputService:SetPlatformUserInputOverride(Enum.UserInputType.Keyboard)
+			end)
+		end
+
+		local function onCharacterAdded(character)
+			humanoid = character:WaitForChild("Humanoid")
+			rootPart = character:WaitForChild("HumanoidRootPart")
+		end
+
+		if player.Character then
+			onCharacterAdded(player.Character)
+		end
+
+		player.CharacterAdded:Connect(onCharacterAdded)
+
+		UserInputService.InputBegan:Connect(function(input, gameProcessed)
+			if gameProcessed then return end
+			if input.UserInputType == Enum.UserInputType.Keyboard then
+				local key = input.KeyCode.Name
+				if keysDown[key] ~= nil then
+					keysDown[key] = true
+				end
+			end
+		end)
+
+		UserInputService.InputEnded:Connect(function(input, gameProcessed)
+			if gameProcessed then return end
+			if input.UserInputType == Enum.UserInputType.Keyboard then
+				local key = input.KeyCode.Name
+				if keysDown[key] ~= nil then
+					keysDown[key] = false
+				end
+			end
+		end)
+
+		RunService.RenderStepped:Connect(function()
+			if not (humanoid and rootPart) then return end
+
+			local cam = workspace.CurrentCamera
+			local lookVector = cam.CFrame.LookVector
+			local camForward = Vector3.new(lookVector.X, 0, lookVector.Z)
+			if camForward.Magnitude > 0 then
+				camForward = camForward.Unit
+			end
+			local camRight = Vector3.new(cam.CFrame.RightVector.X, 0, cam.CFrame.RightVector.Z)
+			if camRight.Magnitude > 0 then
+				camRight = camRight.Unit
+			end
+
+			local moveDir = Vector3.new(0, 0, 0)
+			if keysDown.W then moveDir = moveDir + camForward end
+			if keysDown.S then moveDir = moveDir - camForward end
+			if keysDown.A then moveDir = moveDir - camRight end
+			if keysDown.D then moveDir = moveDir + camRight end
+
+			if moveDir.Magnitude > 0 then
+				humanoid:Move(moveDir.Unit, false)
+			else
+				humanoid:Move(Vector3.new(0, 0, 0), false)
+			end
+		end)
+
+		
+	end    
+})
+
+
+local Tab = Window:MakeTab({
 	Name = "Dev Scripts",
 	Icon = "rbxassetid://107642772703957",
 	PremiumOnly = false
@@ -10252,8 +10366,6 @@ Tab:AddButton({
 	Name = "Ms Paint",
 	Callback = function()
 
-		script_key="sslgsSjPJGkughNHxsojUIeULILzNVhS";
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/002c19202c9946e6047b0c6e0ad51f84.lua"))()
 	end    
 })
 
