@@ -7510,7 +7510,7 @@ Tab:AddButton({
 
 Tab:AddBind({
 	Name = "Rush",
-	Default = Enum.KeyCode.R,
+	Default = Enum.KeyCode.End,
 	Hold = false,
 	Callback = function()
 		---====== Load spawner ======---
@@ -7642,7 +7642,7 @@ end)
 
 Tab:AddBind({
 	Name = "Rush (Die-able)",
-	Default = Enum.KeyCode.T,
+	Default = Enum.KeyCode.End,
 	Hold = false,
 	Callback = function()
 		---====== Load spawner ======---
@@ -7773,7 +7773,7 @@ end)
 
 Tab:AddBind({
 	Name = "Blitz",
-	Default = Enum.KeyCode.Y,
+	Default = Enum.KeyCode.End,
 	Hold = false,
 	Callback = function()
 		---====== Load spawner ======---
@@ -7882,7 +7882,7 @@ Tab:AddBind({
 
 Tab:AddBind({
 	Name = "Blitz (deading)",
-	Default = Enum.KeyCode.U,
+	Default = Enum.KeyCode.End,
 	Hold = false,
 	Callback = function()
 		---====== Load spawner ======---
@@ -7991,7 +7991,7 @@ Tab:AddBind({
 
 Tab:AddBind({
 	Name = "Ambush",
-	Default = Enum.KeyCode.I,
+	Default = Enum.KeyCode.End,
 	Hold = false,
 	Callback = function()
 		---====== Load spawner ======---
@@ -8124,7 +8124,7 @@ end)
 
 Tab:AddBind({
 	Name = "Ambush (Die)",
-	Default = Enum.KeyCode.O,
+	Default = Enum.KeyCode.End,
 	Hold = false,
 	Callback = function()
 		---====== Load spawner ======---
